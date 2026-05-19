@@ -1,7 +1,6 @@
 # Clasificación de sentimientos e interpretación léxica en reseñas de cafeterías usando BERT multilingue y TF-IDF
 
 > Análisis dentro del marco de la materia *Proyecto I - Introducción a los Large Lenguage Models*
-> Facultad de Ciencias, UNAM · Semestre 2026-2
 
 ---
 
@@ -106,14 +105,11 @@ x_i = (w_1, w_2, ..., w_T)
 
 El pipeline de limpieza contempla:
 
-- normalización de texto,
-- tokenización,
-- eliminación de URLs,
-- eliminación de símbolos aislados,
-- reducción de ruido,
-- limpieza de repeticiones,
-- manejo de lenguaje informal,
-- procesamiento de expresiones coloquiales del español mexicano.
+- Normalización de texto desde el formato .csv
+- Tokenización.
+- Eliminación de símbolos.
+- Eliminación de duplicados.
+- Procesamiento de expresiones coloquiales.
 
 ---
 
@@ -121,13 +117,12 @@ El pipeline de limpieza contempla:
 
 Como baseline inicial se evaluará:
 
-- un modelo preentrenado sin fine-tuning,
-- embeddings contextualizados,
-- clasificación zero-shot.
+- Modelo preentrenado sin fine-tuning.
+- Embeddings contextualizados.
 
-Se espera un desempeño moderado capaz de capturar tendencias generales de polaridad.
+Se espera que nuestro modelo sea capaz de capturar tendencias generales de polaridad.
 
-La función de pérdida considerada es la entropía cruzada:
+La función de pérdida considerada es la entropía cruzada determinada por:
 
 ```math
 L = -\sum_{i=1}^{n}\sum_{c \in Y} y_{i,c}\log \hat{y}_i
@@ -136,8 +131,6 @@ L = -\sum_{i=1}^{n}\sum_{c \in Y} y_{i,c}\log \hat{y}_i
 ---
 
 # Análisis interpretativo con TF-IDF
-
-Además del análisis de sentimiento, el proyecto incorpora una etapa de análisis léxico sobre las reseñas clasificadas como negativas.
 
 Sea:
 
@@ -169,12 +162,11 @@ TFIDF(t,d)=TF(t,d)\cdot IDF(t)
 
 Este análisis permitirá detectar patrones recurrentes relacionados con:
 
-- servicio,
-- tiempos de espera,
-- calidad del producto,
-- atención al cliente,
-- precio,
-- ambiente del establecimiento.
+- Servicio.
+- Tiempos de espera.
+- Calidad de productos.
+- Precio.
+- Ambiente del negocio.
 
 A partir de ello será posible generar propuestas de mejora focalizadas basadas en datos reales.
 
@@ -184,13 +176,14 @@ A partir de ello será posible generar propuestas de mejora focalizadas basadas 
 
 | Área | Herramientas |
 |---|---|
+| Control de versiones | Github, VSCodium, Terminal |
+| Procesamiento de datos | pandas, datasets |
 | NLP | HuggingFace Transformers |
 | Deep Learning | PyTorch |
 | Fine-tuning | LoRA, QLoRA |
-| Procesamiento de datos | pandas, datasets |
 | Visualización | matplotlib, seaborn |
-| Experimentación | Jupyter Notebook |
-| Hardware | Kaggle GPU T4 |
+| Experimentación | Jupyter Notebook, VSCodium |
+| Hardware | Google Colab, GPU |
 
 ---
 
@@ -228,6 +221,7 @@ LLM_PROJECT_1/
 | Fase | Estado |
 |---|---|
 | Revisión bibliográfica | ✅ |
+| Construcción de repositorio github | ✅ |
 | Curación del corpus | 🟡 |
 | Preprocesamiento | 🟡 |
 | Baseline | ⬜ |
