@@ -1,6 +1,6 @@
 # Clasificación de sentimientos e interpretación léxica en reseñas de cafeterías usando BERT multilingue y TF-IDF
 
-> Proyecto académico de NLP y Large Language Models  
+> Análisis dentro del marco de la materia *Proyecto I - Introducción a los Large Lenguage Models*
 > Facultad de Ciencias, UNAM · Semestre 2026-2
 
 ---
@@ -13,22 +13,17 @@ Facultad de Ciencias — UNAM
 
 ---
 
-# Descripción
+# Descripción general
 
-Este proyecto implementa un sistema de análisis de sentimientos en español sobre reseñas de tres cafeterías con formatos en una misma zona Ciudad de México utilizando modelos de lenguaje basados en transformers.
+Este proyecto implementa un sistema de análisis de sentimientos en español utilizando BERT multilingüe trabajando sobre reseñas de tres cafeterías con formatos distintos en una misma zona de Ciudad de México. A partir de los resultados del análisis de sentimientos, se realiza una clasificación y análisisis utilizando TF-IDF.
 
-El objetivo principal es estudiar y comparar estrategias modernas de clasificación de texto mediante:
+El objetivo principal de este proyecto es estudiar y comparar estrategias de clasificación de texto mediante:
 
-- modelos preentrenados,
-- fine-tuning supervisado,
-- técnicas eficientes como LoRA y QLoRA,
-- y métodos de interpretación léxica mediante TF-IDF.
+- Modelos preentrenados
+- Fine-tuning supervisado
+- Métodos de interpretación léxica mediante TF-IDF.
 
-Además de clasificar reseñas como positivas, neutrales o negativas, el proyecto incorpora una etapa de análisis interpretativo sobre comentarios negativos para identificar causas recurrentes de insatisfacción y traducirlas en propuestas de mejora.
-
-Este trabajo forma parte del seminario:
-
-> *Proyecto I: Introducción a Large Language Models*
+Además de clasificar reseñas como positivas, neutrales o negativas, el proyecto incorpora una etapa de análisis interpretativo sobre comentarios clasificados como negativos para identificar causas recurrentes de insatisfacción y traducirlas en propuestas de mejora.
 
 ---
 
@@ -66,7 +61,7 @@ El modelo busca aproximar:
 
 # Arquitectura
 
-El proyecto utiliza una arquitectura **encoder-only tipo BERT**, especializada en tareas discriminativas de clasificación de texto.
+El proyecto utiliza una arquitectura **encoder-only tipo BERT multilingüe**, especializada en tareas discriminativas de clasificación de texto.
 
 Pipeline general:
 
@@ -86,18 +81,18 @@ y la predicción final:
 \hat{y} = softmax(W h_{[CLS]} + b)
 ```
 
-Los modelos encoder-only fueron seleccionados debido a:
+Los modelos encoder-only fueron seleccionados con base en:
 
-- eficiencia en entrenamiento e inferencia,
-- alto desempeño en clasificación,
-- capacidad de capturar dependencias semánticas complejas,
-- mejor adecuación para tareas discriminativas frente a modelos encoder-decoder.
+- Eficiencia en entrenamiento
+- Alto desempeño en clasificación
+- Capacidad de capturar dependencias semánticas complejas,
+- Adecuación para tareas discriminativas frente a modelos encoder-decoder.
 
 ---
 
 # Corpus
 
-El corpus consiste en reseñas de cafeterías en español obtenidas desde datasets públicos de Kaggle y posteriormente adaptadas al dominio específico del proyecto.
+El corpus consiste en reseñas de tres cafeterías que se encuentraen español obtenidas desde datasets públicos de Kaggle y posteriormente adaptadas al dominio específico del proyecto.
 
 Cada texto se representa como:
 
