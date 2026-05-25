@@ -1,7 +1,6 @@
 # Clasificación de sentimientos e interpretación léxica en reseñas de cafeterías usando BERT multilingue y TF-IDF
 
-> Proyecto académico de NLP y Large Language Models  
-> Facultad de Ciencias, UNAM · Semestre 2026-2
+> Análisis dentro del marco de la materia *Proyecto I - Introducción a los Large Lenguage Models*
 
 ---
 
@@ -13,22 +12,17 @@ Facultad de Ciencias — UNAM
 
 ---
 
-# Descripción
+# Descripción general
 
-Este proyecto implementa un sistema de análisis de sentimientos en español sobre reseñas de tres cafeterías con formatos en una misma zona Ciudad de México utilizando modelos de lenguaje basados en transformers.
+Este proyecto implementa un sistema de análisis de sentimientos en español utilizando BERT multilingüe trabajando sobre reseñas de tres cafeterías con formatos distintos en una misma zona de Ciudad de México. A partir de los resultados del análisis de sentimientos, se realiza una clasificación y análisisis utilizando TF-IDF.
 
-El objetivo principal es estudiar y comparar estrategias modernas de clasificación de texto mediante:
+El objetivo principal de este proyecto es estudiar y comparar estrategias de clasificación de texto mediante:
 
-- modelos preentrenados,
-- fine-tuning supervisado,
-- técnicas eficientes como LoRA y QLoRA,
-- y métodos de interpretación léxica mediante TF-IDF.
+- Modelos preentrenados
+- Fine-tuning supervisado
+- Métodos de interpretación léxica mediante TF-IDF.
 
-Además de clasificar reseñas como positivas, neutrales o negativas, el proyecto incorpora una etapa de análisis interpretativo sobre comentarios negativos para identificar causas recurrentes de insatisfacción y traducirlas en propuestas de mejora.
-
-Este trabajo forma parte del seminario:
-
-> *Proyecto I: Introducción a Large Language Models*
+Además de clasificar reseñas como positivas, neutrales o negativas, el proyecto incorpora una etapa de análisis interpretativo sobre comentarios clasificados como negativos para identificar causas recurrentes de insatisfacción y traducirlas en propuestas de mejora.
 
 ---
 
@@ -66,7 +60,7 @@ El modelo busca aproximar:
 
 # Arquitectura
 
-El proyecto utiliza una arquitectura **encoder-only tipo BERT**, especializada en tareas discriminativas de clasificación de texto.
+El proyecto utiliza una arquitectura **encoder-only tipo BERT multilingüe**, especializada en tareas discriminativas de clasificación de texto.
 
 Pipeline general:
 
@@ -86,18 +80,18 @@ y la predicción final:
 \hat{y} = softmax(W h_{[CLS]} + b)
 ```
 
-Los modelos encoder-only fueron seleccionados debido a:
+Los modelos encoder-only fueron seleccionados con base en:
 
-- eficiencia en entrenamiento e inferencia,
-- alto desempeño en clasificación,
-- capacidad de capturar dependencias semánticas complejas,
-- mejor adecuación para tareas discriminativas frente a modelos encoder-decoder.
+- Eficiencia en entrenamiento
+- Alto desempeño en clasificación
+- Capacidad de capturar dependencias semánticas complejas,
+- Adecuación para tareas discriminativas frente a modelos encoder-decoder.
 
 ---
 
 # Corpus
 
-El corpus consiste en reseñas de cafeterías en español obtenidas desde datasets públicos de Kaggle y posteriormente adaptadas al dominio específico del proyecto.
+El corpus consiste en reseñas de tres cafeterías que se encuentraen español obtenidas desde datasets públicos de Kaggle y posteriormente adaptadas al dominio específico del proyecto.
 
 Cada texto se representa como:
 
@@ -111,14 +105,11 @@ x_i = (w_1, w_2, ..., w_T)
 
 El pipeline de limpieza contempla:
 
-- normalización de texto,
-- tokenización,
-- eliminación de URLs,
-- eliminación de símbolos aislados,
-- reducción de ruido,
-- limpieza de repeticiones,
-- manejo de lenguaje informal,
-- procesamiento de expresiones coloquiales del español mexicano.
+- Normalización de texto desde el formato .csv
+- Tokenización.
+- Eliminación de símbolos.
+- Eliminación de duplicados.
+- Procesamiento de expresiones coloquiales.
 
 ---
 
@@ -126,13 +117,12 @@ El pipeline de limpieza contempla:
 
 Como baseline inicial se evaluará:
 
-- un modelo preentrenado sin fine-tuning,
-- embeddings contextualizados,
-- clasificación zero-shot.
+- Modelo preentrenado sin fine-tuning.
+- Embeddings contextualizados.
 
-Se espera un desempeño moderado capaz de capturar tendencias generales de polaridad.
+Se espera que nuestro modelo sea capaz de capturar tendencias generales de polaridad.
 
-La función de pérdida considerada es la entropía cruzada:
+La función de pérdida considerada es la entropía cruzada determinada por:
 
 ```math
 L = -\sum_{i=1}^{n}\sum_{c \in Y} y_{i,c}\log \hat{y}_i
@@ -141,8 +131,6 @@ L = -\sum_{i=1}^{n}\sum_{c \in Y} y_{i,c}\log \hat{y}_i
 ---
 
 # Análisis interpretativo con TF-IDF
-
-Además del análisis de sentimiento, el proyecto incorpora una etapa de análisis léxico sobre las reseñas clasificadas como negativas.
 
 Sea:
 
@@ -174,12 +162,11 @@ TFIDF(t,d)=TF(t,d)\cdot IDF(t)
 
 Este análisis permitirá detectar patrones recurrentes relacionados con:
 
-- servicio,
-- tiempos de espera,
-- calidad del producto,
-- atención al cliente,
-- precio,
-- ambiente del establecimiento.
+- Servicio.
+- Tiempos de espera.
+- Calidad de productos.
+- Precio.
+- Ambiente del negocio.
 
 A partir de ello será posible generar propuestas de mejora focalizadas basadas en datos reales.
 
@@ -189,13 +176,14 @@ A partir de ello será posible generar propuestas de mejora focalizadas basadas 
 
 | Área | Herramientas |
 |---|---|
+| Control de versiones | Github, VSCodium, Terminal |
+| Procesamiento de datos | pandas, datasets |
 | NLP | HuggingFace Transformers |
 | Deep Learning | PyTorch |
 | Fine-tuning | LoRA, QLoRA |
-| Procesamiento de datos | pandas, datasets |
 | Visualización | matplotlib, seaborn |
-| Experimentación | Jupyter Notebook |
-| Hardware | Kaggle GPU T4 |
+| Experimentación | Jupyter Notebook, VSCodium |
+| Hardware | Google Colab, GPU |
 
 ---
 
@@ -233,6 +221,7 @@ LLM_PROJECT_1/
 | Fase | Estado |
 |---|---|
 | Revisión bibliográfica | ✅ |
+| Construcción de repositorio github | ✅ |
 | Curación del corpus | 🟡 |
 | Preprocesamiento | 🟡 |
 | Baseline | ⬜ |
