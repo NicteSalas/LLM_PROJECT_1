@@ -7,10 +7,14 @@ Facultad de Ciencias, UNAM · Semestre 2026-2
 
 # Autores
 
-Licenciatura en Matemáticas Aplicadas  
+Licenciatura en Matemáticas Aplicadas
+
 Facultad de Ciencias — UNAM
+
 **Anetzy Fernanda García Compean**
+
 **Sac-Nicté Damayanti Salas Reyes**
+
 **Pedro Díaz López** 
 ---
 
