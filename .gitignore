@@ -223,7 +223,7 @@ huggingface/
 transformers_cache/
 
 # Dataset files (often too large)
-*.csv
+
 *.jsonl
 *.parquet
 *.arrow
