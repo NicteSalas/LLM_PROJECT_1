@@ -40,7 +40,9 @@ Construir un pipeline reproducible de procesamiento de lenguaje natural capaz de
 Las tareas principales se modelan como:
 
 $$\[f_s : X \rightarrow Y_s\]$$
+
 donde:
+
 $$\[Y_s = \{-1,0,1\}\]$$
 
 con:
