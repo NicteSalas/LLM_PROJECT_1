@@ -1,4 +1,4 @@
-# Análisis de Sentimientos y Polarización Política durante el Mundial de Fútbol en México usando LLMs y BERT Multilingüe
+# Análisis de Sentimientos y Polarización Política en TikTok durante el Mundial de Fútbol 2026 en México usando BERT Multilingüe
 
 Análisis dentro del marco de la materia **Proyecto I - Introducción a los Large Language Models**  
 Facultad de Ciencias, UNAM · Semestre 2026-2
@@ -7,8 +7,7 @@ Facultad de Ciencias, UNAM · Semestre 2026-2
 
 # Autores
 
-Licenciatura en Matemáticas Aplicadas
-
+Licenciatura en Matemáticas Aplicadas  
 Facultad de Ciencias — UNAM
 
 **Anetzy Fernanda García Compean**
@@ -21,22 +20,23 @@ Facultad de Ciencias — UNAM
 
 # Descripción general
 
-Este proyecto implementa un sistema de análisis de sentimientos y detección de polarización política en publicaciones de X (antes Twitter) relacionadas con el Mundial de Fútbol.
+Este proyecto implementa un sistema de análisis de sentimientos y detección de polarización política en publicaciones de TikTok relacionadas con el Mundial de Fútbol 2026.
 
-A partir de datos recolectados mediante la plataforma Apify, se analizarán publicaciones realizadas por usuarios ubicados en distintos estados de México para identificar:
+A partir de datos recolectados mediante Apify, se analizarán videos, descripciones y comentarios realizados por usuarios de distintos estados de México con el objetivo de identificar:
 
-- sentimientos predominantes hacia eventos relacionados con el Mundial,
-- diferencias regionales en la percepción del evento,
-- presencia de discursos políticamente polarizados,
-- asociaciones entre temas deportivos y actores políticos.
+- Sentimientos predominantes hacia el Mundial de Fútbol.
+- Diferencias regionales en la percepción del evento.
+- Presencia de discursos políticamente polarizados.
+- Menciones a partidos políticos y figuras públicas.
+- Relación entre eventos deportivos y conversación política.
 
-El proyecto combina técnicas modernas de Procesamiento de Lenguaje Natural (NLP), modelos de lenguaje preentrenados y análisis exploratorio de datos para estudiar cómo un evento deportivo de alcance internacional puede convertirse en un espacio de expresión política dentro de redes sociales.
+El proyecto combina técnicas modernas de Procesamiento de Lenguaje Natural (NLP), modelos Transformer y análisis exploratorio de datos para estudiar cómo un evento deportivo de alcance internacional puede convertirse en un espacio de discusión política en redes sociales.
 
 ---
 
 # Objetivo
 
-Construir un pipeline reproducible de procesamiento de lenguaje natural capaz de analizar sentimientos y detectar patrones de polarización política en publicaciones relacionadas con el Mundial de Fútbol realizadas por usuarios mexicanos en la red social X.
+Construir un pipeline reproducible de procesamiento de lenguaje natural capaz de analizar sentimientos y detectar patrones de polarización política en publicaciones de TikTok relacionadas con el Mundial de Fútbol 2026 realizadas por usuarios mexicanos.
 
 Las tareas principales se modelan como:
 
@@ -55,36 +55,38 @@ con:
 | 5 | Sentimiento positivo |
 
 Asimismo, se plantea una segunda tarea:
+
 $$\[f_p : X \rightarrow Y_p\]$$
+
 donde:
+
 $$\[Y_p = \{0,1\}\]$$
 
 | Clase | Significado |
 |---------|---------|
-| 0 | No polarizado |
-| 1 | Polarizado políticamente |
+| 0 | Sin contenido político |
+| 1 | Contenido político |
 
-El objetivo final es aproximar:
+El modelo busca aproximar:
 
 $$\[\hat{y} = \arg\max P(y|x;\theta)\]$$
-
-para ambas tareas.
 
 ---
 
 # Problema de investigación
 
-Las redes sociales se han convertido en espacios donde los usuarios no solo expresan opiniones sobre eventos deportivos, sino también posiciones ideológicas y políticas.
+TikTok se ha convertido en una de las plataformas digitales más influyentes entre jóvenes y adultos jóvenes en México. Aunque originalmente fue diseñada para contenido de entretenimiento, actualmente funciona como un espacio donde los usuarios expresan opiniones sobre temas sociales, deportivos y políticos.
 
-Durante eventos masivos como el Mundial de Fútbol, es común observar:
+Durante eventos masivos como el Mundial de Fútbol es común observar:
 
-- apoyo o rechazo a selecciones nacionales,
-- discusiones sobre organización del evento,
-- críticas gubernamentales,
-- mensajes de carácter partidista,
-- narrativas nacionalistas o ideológicas.
+- Apoyo o rechazo a selecciones nacionales.
+- Opiniones sobre jugadores y entrenadores.
+- Reacciones a decisiones arbitrales.
+- Comentarios relacionados con el gobierno.
+- Discusiones sobre partidos políticos.
+- Narrativas nacionalistas o ideológicas.
 
-Sin embargo, existe poca evidencia sobre cómo estas dinámicas se distribuyen entre los distintos estados de México y qué patrones de polarización emergen alrededor de un evento deportivo.
+Sin embargo, existe poca evidencia sobre cómo estas conversaciones se distribuyen geográficamente dentro de México y qué patrones de polarización política emergen durante eventos deportivos de gran escala.
 
 ---
 
@@ -94,18 +96,19 @@ El análisis de sentimientos permite transformar opiniones subjetivas en informa
 
 En este contexto, el proyecto busca:
 
-- estudiar la percepción social del Mundial de Fútbol,
-- identificar diferencias regionales en México,
-- analizar la presencia de discursos políticos en conversaciones deportivas,
-- explorar el potencial de los LLMs para el análisis social a gran escala.
+- Analizar la percepción pública del Mundial de Fútbol 2026.
+- Estudiar diferencias regionales entre estados de México.
+- Detectar menciones políticas dentro de conversaciones deportivas.
+- Explorar posibles patrones de polarización política.
+- Aplicar modelos de lenguaje modernos a problemas de análisis social.
 
-Los resultados podrían ser de interés para investigadores en:
+Los resultados pueden ser de interés para investigadores en:
 
-- ciencia de datos,
-- ciencias sociales,
-- comunicación política,
-- análisis de redes sociales,
-- procesamiento de lenguaje natural.
+- Ciencia de datos.
+- Procesamiento de lenguaje natural.
+- Ciencias sociales.
+- Comunicación política.
+- Estudios sobre redes sociales.
 
 ---
 
@@ -116,7 +119,17 @@ El proyecto utiliza una arquitectura **encoder-only** basada en BERT Multilingü
 Pipeline general:
 
 ```text
-Tweet → Preprocesamiento → Tokenización → BERT → Clasificador → Sentimiento / Polarización
+Comentario TikTok
+        ↓
+Preprocesamiento
+        ↓
+Tokenización
+        ↓
+BERT Multilingüe
+        ↓
+Clasificador
+        ↓
+Sentimiento / Contenido Político
 ```
 
 La representación contextual se obtiene mediante:
@@ -129,30 +142,35 @@ $$\[\hat{y}=softmax(W h_{CLS}+b)\]$$
 
 La elección de BERT Multilingüe se fundamenta en:
 
-- alto desempeño en clasificación textual,
-- soporte para español,
-- capacidad de capturar contexto semántico,
-- facilidad de adaptación mediante fine-tuning.
+- Alto desempeño en clasificación textual.
+- Soporte para español.
+- Capacidad de capturar contexto semántico.
+- Facilidad de adaptación mediante fine-tuning.
+- Amplio uso en tareas de análisis de sentimientos.
 
 ---
 
 # Corpus
 
-El corpus estará compuesto por publicaciones extraídas mediante Apify desde la plataforma X.
+El corpus inicial está compuesto por aproximadamente 3000 comentarios de TikTok obtenidos mediante Apify, distribuidos en tres categorías temáticas: infraestructura, seguridad y turismo. Cada categoría se construyó a partir de videos virales relacionados con el Mundial de Fútbol 2026 en México. Esta división permite comparar cómo varían los sentimientos y las referencias políticas según el tema discutido por los usuarios.
 
-Las búsquedas incluirán palabras clave relacionadas con:
+Se recopilarán:
 
-- Mundial de Fútbol,
-- Selección Mexicana,
-- FIFA,
-- partidos internacionales,
-- hashtags oficiales del torneo.
+- Descripciones de videos.
+- Comentarios.
+- Hashtags.
+- Fecha de publicación.
+- Métricas de interacción.
+- Información geográfica cuando esté disponible.
 
-Asimismo, se recopilarán publicaciones que contengan referencias a:
+Las búsquedas estarán relacionadas con:
 
-- partidos políticos mexicanos,
-- actores políticos,
-- temas gubernamentales vinculados indirectamente al Mundial.
+- Mundial 2026.
+- FIFA.
+- Selección Mexicana.
+- Fútbol.
+- Estadios sede en México.
+- Hashtags oficiales del torneo.
 
 Cada documento se representa como:
 
@@ -166,16 +184,19 @@ donde $$\(w_j\)$$ representa los tokens del texto.
 
 Fuente principal:
 
-:contentReference[oaicite:0]{index=0}
+https://apify.com
 
-Los datos recopilados incluirán:
+Los datos se obtendrán mediante scrapers públicos de TikTok disponibles en Apify.
 
-- texto del tweet,
-- fecha,
-- ubicación cuando esté disponible,
-- hashtags,
-- número de interacciones,
-- usuario anonimizado.
+Los registros incluirán:
+
+- Texto.
+- Comentarios.
+- Hashtags.
+- Fecha.
+- Número de likes.
+- Número de respuestas.
+- Información geográfica disponible.
 
 ---
 
@@ -183,64 +204,145 @@ Los datos recopilados incluirán:
 
 El pipeline contempla:
 
-- normalización de texto,
-- eliminación de URLs,
-- eliminación de emojis irrelevantes,
-- tokenización,
-- eliminación de ruido,
-- limpieza de caracteres especiales,
-- detección de idioma,
-- normalización de hashtags.
+- Conversión a minúsculas.
+- Eliminación de URLs.
+- Eliminación de emojis irrelevantes.
+- Eliminación de caracteres especiales.
+- Tokenización.
+- Eliminación de ruido.
+- Normalización de hashtags.
+- Detección de idioma.
 
-Además se incorporará:
+Además se realizará la detección de menciones a:
 
-- extracción de entidades políticas,
-- detección de menciones a partidos políticos,
-- identificación de actores públicos.
+- Morena.
+- PAN.
+- PRI.
+- Movimiento Ciudadano.
+- Claudia Sheinbaum.
+- Andrés Manuel López Obrador.
+- Xóchitl Gálvez.
+- Jorge Álvarez Máynez.
+- Otras figuras políticas relevantes.
 
 ---
 
 # Baseline
 
-Como baseline inicial se evaluará:
+Como línea base para el proyecto se construyó un corpus inicial de comentarios obtenidos de TikTok mediante la plataforma Apify. Con el fin de analizar distintas dimensiones de la percepción pública sobre el Mundial de Fútbol 2026 en México, se seleccionaron tres categorías temáticas de interés:
 
-- BERT Multilingüe sin fine-tuning,
-- clasificación zero-shot,
-- embeddings contextualizados.
+- **Infraestructura**
+- **Seguridad**
+- **Turismo**
 
-Se espera obtener:
+Para cada categoría se identificaron videos virales relacionados con el Mundial de Fútbol, las ciudades sede y los preparativos del evento en México. A partir de estos videos se extrajeron aproximadamente **1000 comentarios por categoría**, obteniendo un corpus inicial de alrededor de **3000 comentarios**.
 
-| Métrica | Estimación inicial |
-|----------|----------|
-| Accuracy sentimiento | 65%-75% |
-| Accuracy polarización | 60%-70% |
+La distribución del corpus se resume en la siguiente tabla:
 
-Posteriormente se comparará contra versiones ajustadas mediante fine-tuning.
+| Categoría | Comentarios recopilados |
+|------------|------------|
+| Infraestructura | ~1000 |
+| Seguridad | ~1000 |
+| Turismo | ~1000 |
+| **Total** | **~3000** |
 
-La función de pérdida considerada es:
+Este corpus servirá como baseline para evaluar el comportamiento inicial de los usuarios de TikTok y establecer una referencia para etapas posteriores de análisis y experimentación.
 
-$$\[L=-\sum_{i=1}^{n}\sum_{c\in Y}y_{i,c}\log(\hat y_{i,c})\]$$
+Sobre este conjunto de datos se realizarán las siguientes tareas:
 
----
+## 1. Análisis de sentimientos
 
-# Análisis de polarización
+Cada comentario será clasificado en una de las siguientes categorías:
+
+| Clase | Significado |
+|---------|---------|
+| -1 | Sentimiento negativo |
+| 0 | Sentimiento neutral |
+| 1 | Sentimiento positivo |
+
+El objetivo es identificar la percepción general de los usuarios respecto a temas relacionados con el Mundial de Fútbol y comparar los resultados entre las categorías de infraestructura, seguridad y turismo.
+
+## 2. Detección de contenido político
+
+Se identificarán menciones explícitas a partidos políticos y figuras públicas relevantes en México.
+
+Las entidades consideradas inicialmente incluyen:
+
+- Morena
+- PAN
+- PRI
+- Movimiento Ciudadano
+- Claudia Sheinbaum
+- Andrés Manuel López Obrador
+- Xóchitl Gálvez
+- Jorge Álvarez Máynez
+
+## 3. Análisis de polarización
+
+A partir de las menciones políticas detectadas se analizarán:
+
+- Frecuencia de menciones por categoría.
+- Relación entre sentimiento y actor político mencionado.
+- Presencia de discursos polarizados.
+- Diferencias entre infraestructura, seguridad y turismo.
+
+## 4. Resultados esperados
+
+Se espera que este baseline permita:
+
+- Identificar tendencias generales de opinión pública relacionadas con el Mundial de Fútbol 2026.
+- Detectar temas que generan mayor aceptación o rechazo.
+- Observar la presencia de discursos políticos dentro de conversaciones originalmente deportivas.
+- Establecer una referencia cuantitativa para futuras etapas de ajuste y evaluación de modelos.
+
+### Ejemplo de estructura del dataset
+
+| id | categoría | comentario | sentimiento | mención_política |
+|----|-----------|------------|------------|------------------|
+| 1 | Infraestructura | El estadio quedó increíble | Positivo | No |
+| 2 | Seguridad | Deberían invertir más en seguridad | Negativo | No |
+| 3 | Turismo | Morena solo usa el Mundial para hacer campaña | Negativo | Sí |
+| 4 | Turismo | Vendrán muchos turistas a México | Positivo | No |
+
+### Métricas iniciales
+
+Las métricas que se reportarán sobre el baseline incluyen:
+
+- Distribución de sentimientos por categoría.
+- Porcentaje de comentarios con contenido político.
+- Frecuencia de menciones a partidos políticos.
+- Frecuencia de menciones a figuras políticas.
+- Comparación entre categorías temáticas.
+- Visualizaciones descriptivas mediante gráficas y tablas.
+
+# Detección de Polarización Política
+
+Se construirá un sistema basado inicialmente en palabras clave para identificar menciones a:
+
+| Categoría | Ejemplos |
+|------------|------------|
+| Morena | morena, 4T |
+| PAN | pan, acción nacional |
+| PRI | pri |
+| Movimiento Ciudadano | movimiento ciudadano, MC |
+| Figuras políticas | Sheinbaum, AMLO, Xóchitl, Máynez |
 
 Sea:
 
-$$\[X_P=\{x_i\in X : \text{contiene referencias políticas}\}\]$$
+$$\[X_P=\{x_i \in X : x_i \text{ contiene referencias políticas}\}\]$$
 
 el subconjunto de publicaciones con contenido político.
 
 Sobre este conjunto se analizarán:
 
-- menciones a partidos políticos,
-- frecuencia de términos ideológicos,
-- asociaciones entre deporte y política,
-- distribución geográfica de la polarización.
+- Frecuencia de menciones políticas.
+- Distribución geográfica.
+- Relación entre sentimiento y partido mencionado.
+- Coocurrencia entre fútbol y política.
 
 ---
 
-# Análisis léxico mediante TF-IDF
+# Análisis Léxico mediante TF-IDF
 
 Para identificar términos característicos asociados a cada categoría se utilizará TF-IDF.
 
@@ -258,11 +360,11 @@ $$\[TFIDF(t,d)=TF(t,d)\cdot IDF(t)\]$$
 
 Este análisis permitirá detectar palabras asociadas con:
 
-- apoyo a la selección,
-- críticas al desempeño deportivo,
-- discursos políticos,
-- polarización ideológica,
-- narrativas nacionalistas.
+- Sentimientos positivos.
+- Sentimientos negativos.
+- Nacionalismo deportivo.
+- Discursos políticos.
+- Narrativas polarizadas.
 
 ---
 
@@ -272,9 +374,9 @@ Este análisis permitirá detectar palabras asociadas con:
 |---------|---------|
 | NLP | HuggingFace Transformers |
 | Deep Learning | PyTorch |
-| Clasificación | BERT Multilingüe |
-| Procesamiento de datos | pandas |
+| Modelo base | BERT Multilingüe |
 | Recolección de datos | Apify |
+| Procesamiento de datos | pandas |
 | Visualización | matplotlib |
 | Análisis geográfico | geopandas |
 | Experimentación | Jupyter Notebook |
@@ -285,7 +387,7 @@ Este análisis permitirá detectar palabras asociadas con:
 # Estructura del repositorio
 
 ```text
-WORLD_CUP_SENTIMENT_PROJECT/
+WORLD_CUP_TIKTOK_ANALYSIS/
 │
 ├── README.md
 │
@@ -295,8 +397,9 @@ WORLD_CUP_SENTIMENT_PROJECT/
 │   ├── 03_preprocessing.ipynb
 │   ├── 04_baseline.ipynb
 │   ├── 05_finetuning.ipynb
-│   ├── 06_polarization_analysis.ipynb
-│   └── 07_visualization.ipynb
+│   ├── 06_sentiment_analysis.ipynb
+│   ├── 07_political_detection.ipynb
+│   └── 08_visualization.ipynb
 │
 ├── data/
 │   ├── raw/
@@ -318,17 +421,17 @@ WORLD_CUP_SENTIMENT_PROJECT/
 | Fase | Estado |
 |----------|----------|
 | Revisión bibliográfica | ✅ |
-| Obtención de datos | 🟡 |
+| Obtención de datos TikTok | 🟡 |
 | Curación del corpus | 🟡 |
 | Preprocesamiento | ⬜ |
-| Baseline | ⬜ |
-| Fine-tuning BERT | ⬜ |
-| Clasificación de sentimientos | ⬜ |
-| Detección de polarización | ⬜ |
+| Baseline BERT | ⬜ |
+| Fine-tuning | ⬜ |
+| Análisis de sentimientos | ⬜ |
+| Detección política | ⬜ |
 | TF-IDF | ⬜ |
 | Visualización geográfica | ⬜ |
 | Evaluación | ⬜ |
-| Deployment | ⬜ |
+| Documentación final | ⬜ |
 
 ---
 
@@ -338,33 +441,12 @@ WORLD_CUP_SENTIMENT_PROJECT/
 
 ---
 
-# Reproducibilidad
-
-Todos los experimentos están diseñados para ejecutarse en:
-
-- Google Colab
-- Kaggle Notebooks
-- GPUs NVIDIA con soporte CUDA
-
-Cada notebook documentará:
-
-- dependencias,
-- hiperparámetros,
-- configuración,
-- métricas,
-- resultados experimentales.
-
----
-
 # Licencia
 
 Este proyecto tiene fines académicos y educativos.
-
-Los datasets, modelos y bibliotecas utilizadas mantienen las licencias originales de sus respectivos autores.
 
 ---
 
 # Agradecimientos
 
-A la Universidad Nacional Autónoma de México y a la Facultad de Ciencias por proporcionar el espacio académico para el desarrollo de este proyecto, así como a los docentes de la materia Proyecto I por sus observaciones y acompañamiento durante el proceso de investigación.
-
+A la Universidad Nacional Autónoma de México, a la Facultad de Ciencias y a los profesores de la materia Proyecto I por el acompañamiento académico durante el desarrollo de este trabajo.
