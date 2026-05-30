@@ -15,7 +15,8 @@ Facultad de Ciencias — UNAM
 
 **Sac-Nicté Damayanti Salas Reyes**
 
-**Pedro Díaz López** 
+**Pedro Díaz López**
+
 ---
 
 # Descripción general
