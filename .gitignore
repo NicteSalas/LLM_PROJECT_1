@@ -255,9 +255,9 @@ special_tokens_map.json
 api_keys.txt
 
 # Large data directories
-data/raw/
-data/processed/
-datasets/
+#data/raw/
+#data/processed/
+#datasets/
 
 # GPU/CUDA cache
 .nv/
