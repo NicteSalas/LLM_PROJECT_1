@@ -437,7 +437,14 @@ WORLD_CUP_TIKTOK_ANALYSIS/
 
 # Referencias principales
 
+- Berdón-Prieto, Pablo; Herrero-Izquierdo, Jacobo; Reguero-Sanz, Itziar (2023). “Political polarization and politainment: Methodology for analyzing crypto hate speech on TikTok”. Profesional de la información, v. 32, n. 6, e320601. https://doi.org/10.3145/epi.2023.nov.01 
 
+- Arce-García, S., & Fernández-Gómez, E. (2024). Deporte y polarización en X: análisis de sentimiento, emociones y posicionamiento aplicado a la entrevista #ObjetivoNadal. Revista Mediterránea de Comunicación, 15(2), 45–63.
+- Cárdenas-Rica, M. L., & Sánchez-Castillo, S. (2024). Comunicación política en redes sociales: análisis de popularidad y sentimientos en X/Twitter mediante ciencia de datos. Revista Latina de Comunicación Social, 82, 1–22.
+
+- Yu, H., Wang, X., & Joo, J. (2018). GOAALLL!: Using sentiment in the World Cup to explore theories of emotion. Proceedings of the International AAAI Conference on Web and Social Media, 12(1), 617–620.
+
+- Maddock, J., O'Reilly, M., & Braghieri, L. (2024). What's political on TikTok? Perceptions, prevalence, and patterns of exposure to TikToks users perceive as political. New Media & Society.
 
 ---
 
