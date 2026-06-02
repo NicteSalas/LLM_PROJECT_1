@@ -20,351 +20,117 @@ Facultad de Ciencias — UNAM
 
 # Descripción general
 
-Este proyecto implementa un sistema de análisis de sentimientos y detección de polarización política en publicaciones de TikTok relacionadas con el Mundial de Fútbol 2026.
+Este proyecto analiza la percepción ciudadana sobre la gestión del gobierno mexicano en el contexto de los preparativos para la Copa Mundial de la FIFA 2026. Para ello se recopilaron comentarios de TikTok relacionados con tres problemáticas frecuentemente asociadas con la organización del evento:
 
-A partir de datos recolectados mediante Apify, se analizarán videos, descripciones y comentarios realizados por usuarios de distintos estados de México con el objetivo de identificar:
+* Infraestructura
+* Seguridad
+* Turismo
 
-- Sentimientos predominantes hacia el Mundial de Fútbol.
-- Diferencias regionales en la percepción del evento.
-- Presencia de discursos políticamente polarizados.
-- Menciones a partidos políticos y figuras públicas.
-- Relación entre eventos deportivos y conversación política.
+A partir de estos comentarios se realiza un análisis de sentimiento con el objetivo de identificar si las opiniones expresadas reflejan aprobación, desaprobación o neutralidad respecto a las acciones implementadas por el gobierno.
 
-El proyecto combina técnicas modernas de Procesamiento de Lenguaje Natural (NLP), modelos Transformer y análisis exploratorio de datos para estudiar cómo un evento deportivo de alcance internacional puede convertirse en un espacio de discusión política en redes sociales.
+El proyecto busca estudiar si las inversiones y cambios asociados al Mundial de Fútbol 2026 influyen en la aceptación ciudadana del gobierno actual.
 
 ---
 
 # Objetivo
 
-Construir un pipeline reproducible de procesamiento de lenguaje natural capaz de analizar sentimientos y detectar patrones de polarización política en publicaciones de TikTok relacionadas con el Mundial de Fútbol 2026 realizadas por usuarios mexicanos.
+Construir un sistema de análisis de sentimientos capaz de evaluar la percepción pública sobre las acciones del gobierno mexicano relacionadas con la preparación del Mundial de Fútbol 2026.
 
-Las tareas principales se modelan como:
+A partir de comentarios publicados en TikTok, el sistema clasificará las opiniones en una escala de cinco niveles para medir el grado de aceptación o rechazo hacia la administración actual.
 
-$$\[f_s : X \rightarrow Y_s\]$$
+La tarea se modela como:
 
-donde:
-
-$$\[Y_s = \{-1,0,1\}\]$$
-
-con:
-
-| Clase | Significado |
-|---------|---------|
-| 1 | Sentimiento negativo |
-| 3 | Sentimiento neutral |
-| 5 | Sentimiento positivo |
-
-Asimismo, se plantea una segunda tarea:
-
-$$\[f_p : X \rightarrow Y_p\]$$
+$$[f : X \rightarrow Y]$$
 
 donde:
 
-$$\[Y_p = \{0,1\}\]$$
+$$[Y = {1,2,3,4,5}]$$
 
-| Clase | Significado |
-|---------|---------|
-| 0 | Sin contenido político |
-| 1 | Contenido político |
-
-El modelo busca aproximar:
-
-$$\[\hat{y} = \arg\max P(y|x;\theta)\]$$
+| Clase | Interpretación                    |
+| ----- | --------------------------------- |
+| 1     | Muy en desacuerdo con el gobierno |
+| 2     | En desacuerdo con el gobierno     |
+| 3     | Neutral                           |
+| 4     | De acuerdo con el gobierno        |
+| 5     | Muy de acuerdo con el gobierno    |
 
 ---
 
 # Problema de investigación
 
-TikTok se ha convertido en una de las plataformas digitales más influyentes entre jóvenes y adultos jóvenes en México. Aunque originalmente fue diseñada para contenido de entretenimiento, actualmente funciona como un espacio donde los usuarios expresan opiniones sobre temas sociales, deportivos y políticos.
+La organización de eventos internacionales suele implicar inversiones importantes en infraestructura, turismo y seguridad. Estas acciones pueden modificar la percepción ciudadana sobre el desempeño gubernamental.
 
-Durante eventos masivos como el Mundial de Fútbol es común observar:
+Sin embargo, medir dicha percepción mediante encuestas tradicionales resulta costoso y lento. Las redes sociales ofrecen una alternativa para estudiar opiniones expresadas de manera espontánea por los usuarios.
 
-- Apoyo o rechazo a selecciones nacionales.
-- Opiniones sobre jugadores y entrenadores.
-- Reacciones a decisiones arbitrales.
-- Comentarios relacionados con el gobierno.
-- Discusiones sobre partidos políticos.
-- Narrativas nacionalistas o ideológicas.
+La pregunta central del proyecto es:
 
-Sin embargo, existe poca evidencia sobre cómo estas conversaciones se distribuyen geográficamente dentro de México y qué patrones de polarización política emergen durante eventos deportivos de gran escala.
-
----
-
-# Motivación
-
-El análisis de sentimientos permite transformar opiniones subjetivas en información estructurada útil para comprender fenómenos sociales.
-
-En este contexto, el proyecto busca:
-
-- Analizar la percepción pública del Mundial de Fútbol 2026.
-- Estudiar diferencias regionales entre estados de México.
-- Detectar menciones políticas dentro de conversaciones deportivas.
-- Explorar posibles patrones de polarización política.
-- Aplicar modelos de lenguaje modernos a problemas de análisis social.
-
-Los resultados pueden ser de interés para investigadores en:
-
-- Ciencia de datos.
-- Procesamiento de lenguaje natural.
-- Ciencias sociales.
-- Comunicación política.
-- Estudios sobre redes sociales.
-
----
-
-# Arquitectura
-
-El proyecto utiliza una arquitectura **encoder-only** basada en BERT Multilingüe, especializada en tareas de clasificación de texto.
-
-Pipeline general:
-
-```text
-Comentario TikTok
-        ↓
-Preprocesamiento
-        ↓
-Tokenización
-        ↓
-BERT Multilingüe
-        ↓
-Clasificador
-        ↓
-Sentimiento / Contenido Político
-```
-
-La representación contextual se obtiene mediante:
-
-$$\[h = BERT(x)\]$$
-
-y la predicción final:
-
-$$\[\hat{y}=softmax(W h_{CLS}+b)\]$$
-
-La elección de BERT Multilingüe se fundamenta en:
-
-- Alto desempeño en clasificación textual.
-- Soporte para español.
-- Capacidad de capturar contexto semántico.
-- Facilidad de adaptación mediante fine-tuning.
-- Amplio uso en tareas de análisis de sentimientos.
+> ¿Los cambios asociados a la organización del Mundial de Fútbol 2026 están mejorando la aceptación del gobierno mexicano según las opiniones expresadas en TikTok?
 
 ---
 
 # Corpus
 
-El corpus inicial está compuesto por aproximadamente 3000 comentarios de TikTok obtenidos mediante Apify, distribuidos en tres categorías temáticas: infraestructura, seguridad y turismo. Cada categoría se construyó a partir de videos virales relacionados con el Mundial de Fútbol 2026 en México. Esta división permite comparar cómo varían los sentimientos y las referencias políticas según el tema discutido por los usuarios.
+El corpus está compuesto por aproximadamente 3000 comentarios obtenidos mediante TikTok y recolectados utilizando Apify.
 
-Se recopilarán:
+Los comentarios se distribuyen en tres categorías temáticas:
 
-- Descripciones de videos.
-- Comentarios.
-- Hashtags.
-- Fecha de publicación.
-- Métricas de interacción.
-- Información geográfica cuando esté disponible.
+| Categoría       | Número aproximado de comentarios |
+| --------------- | -------------------------------- |
+| Infraestructura | 1000                             |
+| Seguridad       | 1000                             |
+| Turismo         | 1000                             |
+| Total           | 3000                             |
 
-Las búsquedas estarán relacionadas con:
+Los videos seleccionados corresponden a publicaciones virales relacionadas con:
 
-- Mundial 2026.
-- FIFA.
-- Selección Mexicana.
-- Fútbol.
-- Estadios sede en México.
-- Hashtags oficiales del torneo.
-
-Cada documento se representa como:
-
-$$\[x_i=(w_1,w_2,\dots,w_T)\]$$
-
-donde $$\(w_j\)$$ representa los tokens del texto.
-
----
-
-# Obtención de datos
-
-Fuente principal:
-
-https://apify.com
-
-Los datos se obtendrán mediante scrapers públicos de TikTok disponibles en Apify.
-
-Los registros incluirán:
-
-- Texto.
-- Comentarios.
-- Hashtags.
-- Fecha.
-- Número de likes.
-- Número de respuestas.
-- Información geográfica disponible.
-
----
-
-# Preprocesamiento
-
-El pipeline contempla:
-
-- Conversión a minúsculas.
-- Eliminación de URLs.
-- Eliminación de emojis irrelevantes.
-- Eliminación de caracteres especiales.
-- Tokenización.
-- Eliminación de ruido.
-- Normalización de hashtags.
-- Detección de idioma.
-
-Además se realizará la detección de menciones a:
-
-- Morena.
-- PAN.
-- PRI.
-- Movimiento Ciudadano.
-- Claudia Sheinbaum.
-- Andrés Manuel López Obrador.
-- Xóchitl Gálvez.
-- Jorge Álvarez Máynez.
-- Otras figuras políticas relevantes.
+* Construcción y remodelación de infraestructura.
+* Estrategias de seguridad para el Mundial.
+* Impacto turístico y económico esperado.
 
 ---
 
 # Baseline
 
-Como línea base para el proyecto se construyó un corpus inicial de comentarios obtenidos de TikTok mediante la plataforma Apify. Con el fin de analizar distintas dimensiones de la percepción pública sobre el Mundial de Fútbol 2026 en México, se seleccionaron tres categorías temáticas de interés:
+Como línea base se construyó un conjunto de datos etiquetado manualmente utilizando una escala ordinal de cinco niveles.
 
-- **Infraestructura**
-- **Seguridad**
-- **Turismo**
+Cada comentario se clasifica según el grado de aceptación o rechazo hacia el gobierno actual:
 
-Para cada categoría se identificaron videos virales relacionados con el Mundial de Fútbol, las ciudades sede y los preparativos del evento en México. A partir de estos videos se extrajeron aproximadamente **1000 comentarios por categoría**, obteniendo un corpus inicial de alrededor de **3000 comentarios**.
+| Etiqueta | Significado  |
+| -------- | ------------ |
+| 1        | Muy negativo |
+| 2        | Negativo     |
+| 3        | Neutral      |
+| 4        | Positivo     |
+| 5        | Muy positivo |
 
-La distribución del corpus se resume en la siguiente tabla:
+Sobre este corpus se realizarán las siguientes tareas:
 
-| Categoría | Comentarios recopilados |
-|------------|------------|
-| Infraestructura | ~1000 |
-| Seguridad | ~1000 |
-| Turismo | ~1000 |
-| **Total** | **~3000** |
+## Análisis de sentimientos
 
-Este corpus servirá como baseline para evaluar el comportamiento inicial de los usuarios de TikTok y establecer una referencia para etapas posteriores de análisis y experimentación.
+Clasificar automáticamente los comentarios según la escala definida.
 
-Sobre este conjunto de datos se realizarán las siguientes tareas:
+## Comparación por categoría
 
-## 1. Análisis de sentimientos
+Analizar diferencias entre:
 
-Cada comentario será clasificado en una de las siguientes categorías:
+* Infraestructura
+* Seguridad
+* Turismo
 
-| Clase | Significado |
-|---------|---------|
-| -1 | Sentimiento negativo |
-| 0 | Sentimiento neutral |
-| 1 | Sentimiento positivo |
+## Evaluación de aceptación gubernamental
 
-El objetivo es identificar la percepción general de los usuarios respecto a temas relacionados con el Mundial de Fútbol y comparar los resultados entre las categorías de infraestructura, seguridad y turismo.
+Calcular la distribución de sentimientos para estimar el nivel de aceptación del gobierno en cada temática.
 
-## 2. Detección de contenido político
+## Resultados esperados
 
-Se identificarán menciones explícitas a partidos políticos y figuras públicas relevantes en México.
+Se espera identificar:
 
-Las entidades consideradas inicialmente incluyen:
+* Qué temática genera mayor aceptación ciudadana.
+* Qué temática genera mayor descontento.
+* Si existe una tendencia positiva asociada a las inversiones relacionadas con el Mundial.
+* Cómo varía la percepción pública entre las distintas áreas analizadas.
 
-- Morena
-- PAN
-- PRI
-- Movimiento Ciudadano
-- Claudia Sheinbaum
-- Andrés Manuel López Obrador
-- Xóchitl Gálvez
-- Jorge Álvarez Máynez
-
-## 3. Análisis de polarización
-
-A partir de las menciones políticas detectadas se analizarán:
-
-- Frecuencia de menciones por categoría.
-- Relación entre sentimiento y actor político mencionado.
-- Presencia de discursos polarizados.
-- Diferencias entre infraestructura, seguridad y turismo.
-
-## 4. Resultados esperados
-
-Se espera que este baseline permita:
-
-- Identificar tendencias generales de opinión pública relacionadas con el Mundial de Fútbol 2026.
-- Detectar temas que generan mayor aceptación o rechazo.
-- Observar la presencia de discursos políticos dentro de conversaciones originalmente deportivas.
-- Establecer una referencia cuantitativa para futuras etapas de ajuste y evaluación de modelos.
-
-### Ejemplo de estructura del dataset
-
-| id | categoría | comentario | sentimiento | mención_política |
-|----|-----------|------------|------------|------------------|
-| 1 | Infraestructura | El estadio quedó increíble | Positivo | No |
-| 2 | Seguridad | Deberían invertir más en seguridad | Negativo | No |
-| 3 | Turismo | Morena solo usa el Mundial para hacer campaña | Negativo | Sí |
-| 4 | Turismo | Vendrán muchos turistas a México | Positivo | No |
-
-### Métricas iniciales
-
-Las métricas que se reportarán sobre el baseline incluyen:
-
-- Distribución de sentimientos por categoría.
-- Porcentaje de comentarios con contenido político.
-- Frecuencia de menciones a partidos políticos.
-- Frecuencia de menciones a figuras políticas.
-- Comparación entre categorías temáticas.
-- Visualizaciones descriptivas mediante gráficas y tablas.
-
-# Detección de Polarización Política
-
-Se construirá un sistema basado inicialmente en palabras clave para identificar menciones a:
-
-| Categoría | Ejemplos |
-|------------|------------|
-| Morena | morena, 4T |
-| PAN | pan, acción nacional |
-| PRI | pri |
-| Movimiento Ciudadano | movimiento ciudadano, MC |
-| Figuras políticas | Sheinbaum, AMLO, Xóchitl, Máynez |
-
-Sea:
-
-$$\[X_P=\{x_i \in X : x_i \text{ contiene referencias políticas}\}\]$$
-
-el subconjunto de publicaciones con contenido político.
-
-Sobre este conjunto se analizarán:
-
-- Frecuencia de menciones políticas.
-- Distribución geográfica.
-- Relación entre sentimiento y partido mencionado.
-- Coocurrencia entre fútbol y política.
-
----
-
-# Análisis Léxico mediante TF-IDF
-
-Para identificar términos característicos asociados a cada categoría se utilizará TF-IDF.
-
-La frecuencia de término se define como:
-
-$$\[TF(t,d)=\frac{f_{t,d}}{\sum_{t'}f_{t',d}}\]$$
-
-La frecuencia inversa de documento:
-
-$$\[IDF(t)=\log\left(\frac{N}{df_t}\right)\]$$
-
-Y la ponderación final:
-
-$$\[TFIDF(t,d)=TF(t,d)\cdot IDF(t)\]$$
-
-Este análisis permitirá detectar palabras asociadas con:
-
-- Sentimientos positivos.
-- Sentimientos negativos.
-- Nacionalismo deportivo.
-- Discursos políticos.
-- Narrativas polarizadas.
+La hipótesis principal es que los proyectos asociados al Mundial de Fútbol 2026 generan una mejora observable en la percepción ciudadana del gobierno, particularmente en temas de infraestructura y turismo.
 
 ---
 
@@ -427,9 +193,6 @@ WORLD_CUP_TIKTOK_ANALYSIS/
 | Baseline BERT | ⬜ |
 | Fine-tuning | ⬜ |
 | Análisis de sentimientos | ⬜ |
-| Detección política | ⬜ |
-| TF-IDF | ⬜ |
-| Visualización geográfica | ⬜ |
 | Evaluación | ⬜ |
 | Documentación final | ⬜ |
 
