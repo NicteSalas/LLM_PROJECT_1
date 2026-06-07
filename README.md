@@ -196,27 +196,17 @@ WORLD_CUP_TIKTOK_ANALYSIS/
 | Evaluación | ⬜ |
 | Documentación final | ⬜ |
 
----
 
-# Referencias principales
 
-- Berdón-Prieto, Pablo; Herrero-Izquierdo, Jacobo; Reguero-Sanz, Itziar (2023). “Political polarization and politainment: Methodology for analyzing crypto hate speech on TikTok”. Profesional de la información, v. 32, n. 6, e320601. https://doi.org/10.3145/epi.2023.nov.01 
+# Consideraciones éticas
 
-- Arce-García, S., & Fernández-Gómez, E. (2024). Deporte y polarización en X: análisis de sentimiento, emociones y posicionamiento aplicado a la entrevista #ObjetivoNadal. Revista Mediterránea de Comunicación, 15(2), 45–63.
-- Cárdenas-Rica, M. L., & Sánchez-Castillo, S. (2024). Comunicación política en redes sociales: análisis de popularidad y sentimientos en X/Twitter mediante ciencia de datos. Revista Latina de Comunicación Social, 82, 1–22.
+Los datos utilizados provienen de contenido públicamente accesible en TikTok y se emplean exclusivamente con fines académicos y de investigación.
 
-- Yu, H., Wang, X., & Joo, J. (2018). GOAALLL!: Using sentiment in the World Cup to explore theories of emotion. Proceedings of the International AAAI Conference on Web and Social Media, 12(1), 617–620.
-
-- Maddock, J., O'Reilly, M., & Braghieri, L. (2024). What's political on TikTok? Perceptions, prevalence, and patterns of exposure to TikToks users perceive as political. New Media & Society.
-
----
-
-# Licencia
-
-Este proyecto tiene fines académicos y educativos.
+Este proyecto no busca identificar individuos ni analizar usuarios específicos, sino estudiar tendencias generales de opinión 
+pública relacionadas con el torneo internacional de futbol a llevarse a cabo durante Junio 2026 en México.
 
 ---
 
 # Agradecimientos
 
-A la Universidad Nacional Autónoma de México, a la Facultad de Ciencias y a los profesores de la materia Proyecto I por el acompañamiento académico durante el desarrollo de este trabajo.
+A la Universidad Nacional Autónoma de México, a la Facultad de Ciencias y a los investigadores que impartieron *Proyecto I* por el acompañamiento académico y moral durante el desarrollo de este trabajo.
