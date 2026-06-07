@@ -1,5 +1,5 @@
 # [*Esta liga*](https://drive.google.com/drive/folders/12NLRjVqGR_Z_KorMS3Tf82L7vleMOzpO?usp=drive_link) te llevará carpeta de Google Drive donde se encuentran los artículos referencia. 
----
+
 Referencias:
 
 - Ballesteros Domínguez, J. (2025). *Comunicación política en redes sociales: análisis de popularidad y sentimientos en X/Twitter mediante ciencia de datos* [Trabajo de Fin de Grado, Universidad de Las Palmas de Gran Canaria]. Universidad de Las Palmas de Gran Canaria.
