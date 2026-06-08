@@ -1,4 +1,4 @@
-# Análisis de Sentimientos y Aprobación Política en TikTok durante el Mundial de Fútbol 2026 en México usando BERT Multilingüe
+# Análisis de Sentimientos y Aprobación Política en TikTok durante el torneo de futbol 2026 en México usando BERT Multilingüe
 
 Análisis dentro del marco de la materia **Proyecto I - Introducción a los Large Language Models**  
 Facultad de Ciencias, UNAM · Semestre 2026-2
@@ -20,23 +20,23 @@ Facultad de Ciencias — UNAM
 
 # Descripción general
 
-Este proyecto analiza la percepción ciudadana sobre la gestión del gobierno mexicano en el contexto de los preparativos para la Copa Mundial de la FIFA 2026. Para ello se recopilaron comentarios de TikTok relacionados con tres problemáticas frecuentemente asociadas con la organización del evento:
+Este proyecto analiza la percepción ciudadana sobre la gestión del gobierno mexicano en el contexto de los preparativos para el torneo internacional de futbol 2026 a llevarse a cabo en México. Para ello se recopilaron comentarios de TikTok relacionados con tres problemáticas frecuentemente asociadas con la organización del evento:
 
 * Infraestructura
 * Seguridad
 * Turismo
 
-A partir de estos comentarios, se realiza un análisis de sentimiento con el objetivo de identificar si las opiniones expresadas reflejan aprobación, desaprobación o neutralidad respecto de las acciones implementadas por el gobierno.
+A partir de estos comentarios, se realiza un análisis de sentimiento con el objetivo de identificar si las opiniones expresadas reflejan aprobación, desaprobación o neutralidad respecto de las acciones implementadas por el gobierno en México.
 
-El proyecto busca estudiar si las inversiones y los cambios asociados al Mundial de Fútbol 2026 influyen en la aceptación ciudadana del gobierno actual.
+El proyecto busca estudiar si las inversiones y los cambios derivados de la ejecución del torneo internacional en las distintas sedes mexicanas influyen en la aceptación ciudadana del gobierno actual.
 
 ---
 
 # Objetivo
 
-Construir un sistema de análisis de sentimientos capaz de evaluar la percepción pública sobre las acciones del gobierno mexicano relacionadas con la preparación del Mundial de Fútbol 2026.
+Construir un sistema de análisis de sentimientos capaz de evaluar la percepción pública sobre las acciones del gobierno mexicano relacionadas con la preparación del torneo internacional de fútbol 2026.
 
-A partir de comentarios publicados en TikTok, el sistema clasificará las opiniones en una escala de cinco niveles para medir el grado de aceptación o rechazo hacia la administración actual.
+A partir de comentarios publicados en videos de TikTok asociados con el mundial y enfocados en alguno de los ejes de clasificación a considerar (infraestructura,seguridad,turismo), el sistema clasificará las opiniones en una escala de cinco niveles para medir el grado de aceptación o rechazo hacia la administración actual.
 
 La tarea se modela como:
 
@@ -46,30 +46,30 @@ donde:
 
 $$[Y = {1,2,3,4,5}]$$
 
-| Clase | Interpretación                    |
-| ----- | --------------------------------- |
-| 1     | Muy en desacuerdo con el gobierno |
-| 2     | En desacuerdo con el gobierno     |
-| 3     | Neutral                           |
-| 4     | De acuerdo con el gobierno        |
-| 5     | Muy de acuerdo con el gobierno    |
+| Clase | Significado  |
+| -------- | ------------ |
+| 1        | Muy negativo |
+| 2        | Negativo     |
+| 3        | Neutral      |
+| 4        | Positivo     |
+| 5        | Muy positivo |
 
 ---
 # Descripción del problema
 
-La organización de la Copa Mundial de la FIFA 2026 representa uno de los eventos deportivos más importantes para México en las últimas décadas. Su preparación implica inversiones significativas en infraestructura urbana, estrategias de seguridad pública y programas de promoción turística.
+La organización del torneo internacional de futbol 2026 representa uno de los eventos deportivos más importantes para México en las últimas décadas. Su preparación implica inversiones significativas en infraestructura urbana, estrategias de seguridad pública y programas de promoción turística.
 
 Estas acciones pueden influir en la percepción que la ciudadanía tiene sobre la gestión gubernamental. Sin embargo, los métodos tradicionales para medir opinión pública, como encuestas y entrevistas, suelen requerir grandes recursos económicos y presentan limitaciones temporales.
 
 Las redes sociales ofrecen una fuente alternativa de información donde los usuarios expresan opiniones de manera espontánea. En particular, TikTok se ha convertido en una de las plataformas con mayor crecimiento en México y concentra una gran cantidad de discusiones relacionadas con temas sociales, políticos y deportivos.
 
-Este proyecto busca utilizar técnicas de Procesamiento de Lenguaje Natural (NLP) para analizar comentarios de TikTok relacionados con infraestructura, seguridad y turismo durante la preparación del Mundial de Fútbol 2026.
+Este proyecto busca utilizar técnicas de Procesamiento de Lenguaje Natural (NLP) para analizar comentarios de TikTok relacionados con infraestructura, seguridad y turismo durante la preparación del torneo internacional de futbol 2026.
 
 El objetivo es identificar patrones de aprobación o desaprobación hacia las acciones gubernamentales y estudiar cómo estas percepciones varían entre las diferentes temáticas analizadas.
 
 La pregunta central del proyecto es:
 
-> Los cambios asociados a la organización del Mundial de Fútbol 2026 ¿están mejorando la aceptación del gobierno mexicano según las opiniones expresadas en TikTok?
+> Los cambios asociados a la organización del torneo internacional de futbol ¿están mejorando la aceptación del gobierno mexicano según las opiniones expresadas en TikTok?
 
 ---
 
@@ -89,7 +89,7 @@ Los comentarios se distribuyen en tres categorías temáticas:
 Los videos seleccionados corresponden a publicaciones virales relacionadas con:
 
 * Construcción y remodelación de infraestructura.
-* Estrategias de seguridad para el Mundial.
+* Estrategias de seguridad y percepción general.
 * Impacto turístico y económico esperado.
 
 ---
@@ -128,12 +128,7 @@ Calcular la distribución de sentimientos para estimar el nivel de aceptación d
 
 ## Resultados esperados
 
-Se espera identificar:
-
-* Qué temática genera mayor aceptación ciudadana
-* Qué temática genera mayor descontento
-* Si existe una tendencia positiva asociada a las inversiones relacionadas con el Mundial
-* Cómo varía la percepción pública entre las distintas áreas analizadas
+Se espera identificar si existe una tendencia positiva asociada a las inversiones relacionadas con el torneo internacional y cómo varía la percepción pública entre las distintas áreas analizadas
 
 La hipótesis principal es que los proyectos asociados al Mundial de Fútbol 2026 generan una mejora observable en la percepción ciudadana del gobierno, particularmente en temas de infraestructura y turismo.
 
