@@ -1,4 +1,4 @@
-# Análisis de Sentimientos y Aprobación Política en TikTok durante el Mundial de Fútbol 2026 en México usando BERT Multilingüe
+# Análisis de Sentimientos y Aprobación Política en TikTok durante el torneo internacional de Fútbol 2026 en México usando BERT Multilingüe
 
 Análisis dentro del marco de la materia **Proyecto I - Introducción a los Large Language Models**  
 Facultad de Ciencias, UNAM · Semestre 2026-2
