@@ -95,6 +95,8 @@ Preprocesamiento
     ↓
 Etiquetado humano
     ↓
+Limpieza y normalización *
+    ↓
 Extracción de características
     ↓
 Entrenamiento de modelos
