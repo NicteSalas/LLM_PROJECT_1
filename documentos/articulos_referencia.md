@@ -4,7 +4,7 @@ Referencias:
 
 - Ballesteros Domínguez, J. (2025). *Comunicación política en redes sociales: análisis de popularidad y sentimientos en X/Twitter mediante ciencia de datos* [Trabajo de Fin de Grado, Universidad de Las Palmas de Gran Canaria]. Universidad de Las Palmas de Gran Canaria.
 
-- Fregoso Peralta, G. (1990). *Fútbol México-86: Así se hizo el mundial.* Chasqui. Revista Latinoamericana de Comunicación, 34, 70–79.
+- Fregoso Peralta, G. (1990). *Fútbol México-86: Así se hizo el mundial.* Chasqui. Revista Latinoamericana de Comunicación, 34, 70–79
 
 - Garimella, V. R. K., & Weber, I. (2017). *A long-term analysis of polarization on Twitter*. arXiv. https://arxiv.org/abs/1703.02769
 

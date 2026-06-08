@@ -207,6 +207,36 @@ pública relacionadas con el torneo internacional de futbol a llevarse a cabo du
 
 ---
 
+<<<<<<< HEAD
+=======
+# Instalación
+
+## Requisitos
+
+- Python 3.10 o superior
+- Git
+- Clonar el repositorio
+
+
+---
+
+# Ejecucion
+
+---
+
+# Métricas de evaluación
+
+El desempeño del modelo se evaluará mediante:
+
+- Accuracy
+- Balanced Accuracy
+- F1 Weighted
+- F1-score
+- Matriz de confusión
+
+Estas métricas permitirán comparar el desempeño del baseline contra el modelo ajustado mediante fine-tuning.
+
+>>>>>>> 0c273f1df8f49e056987858c455a6a9bee5e29e5
 # Agradecimientos
 
 A la Universidad Nacional Autónoma de México, a la Facultad de Ciencias y a los investigadores que impartieron *Proyecto I* por el acompañamiento académico y moral durante el desarrollo de este trabajo.
