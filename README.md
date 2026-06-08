@@ -1,4 +1,4 @@
-# Análisis de Sentimientos y Polarización Política en TikTok durante el Mundial de Fútbol 2026 en México usando BERT Multilingüe
+# Análisis de Sentimientos y Aprobación Política en TikTok durante el Mundial de Fútbol 2026 en México usando BERT Multilingüe
 
 Análisis dentro del marco de la materia **Proyecto I - Introducción a los Large Language Models**  
 Facultad de Ciencias, UNAM · Semestre 2026-2
@@ -26,9 +26,9 @@ Este proyecto analiza la percepción ciudadana sobre la gestión del gobierno me
 * Seguridad
 * Turismo
 
-A partir de estos comentarios se realiza un análisis de sentimiento con el objetivo de identificar si las opiniones expresadas reflejan aprobación, desaprobación o neutralidad respecto a las acciones implementadas por el gobierno.
+A partir de estos comentarios, se realiza un análisis de sentimiento con el objetivo de identificar si las opiniones expresadas reflejan aprobación, desaprobación o neutralidad respecto de las acciones implementadas por el gobierno.
 
-El proyecto busca estudiar si las inversiones y cambios asociados al Mundial de Fútbol 2026 influyen en la aceptación ciudadana del gobierno actual.
+El proyecto busca estudiar si las inversiones y los cambios asociados al Mundial de Fútbol 2026 influyen en la aceptación ciudadana del gobierno actual.
 
 ---
 
@@ -55,16 +55,21 @@ $$[Y = {1,2,3,4,5}]$$
 | 5     | Muy de acuerdo con el gobierno    |
 
 ---
+# Descripción del problema
 
-# Problema de investigación
+La organización de la Copa Mundial de la FIFA 2026 representa uno de los eventos deportivos más importantes para México en las últimas décadas. Su preparación implica inversiones significativas en infraestructura urbana, estrategias de seguridad pública y programas de promoción turística.
 
-La organización de eventos internacionales suele implicar inversiones importantes en infraestructura, turismo y seguridad. Estas acciones pueden modificar la percepción ciudadana sobre el desempeño gubernamental.
+Estas acciones pueden influir en la percepción que la ciudadanía tiene sobre la gestión gubernamental. Sin embargo, los métodos tradicionales para medir opinión pública, como encuestas y entrevistas, suelen requerir grandes recursos económicos y presentan limitaciones temporales.
 
-Sin embargo, medir dicha percepción mediante encuestas tradicionales resulta costoso y lento. Las redes sociales ofrecen una alternativa para estudiar opiniones expresadas de manera espontánea por los usuarios.
+Las redes sociales ofrecen una fuente alternativa de información donde los usuarios expresan opiniones de manera espontánea. En particular, TikTok se ha convertido en una de las plataformas con mayor crecimiento en México y concentra una gran cantidad de discusiones relacionadas con temas sociales, políticos y deportivos.
+
+Este proyecto busca utilizar técnicas de Procesamiento de Lenguaje Natural (NLP) para analizar comentarios de TikTok relacionados con infraestructura, seguridad y turismo durante la preparación del Mundial de Fútbol 2026.
+
+El objetivo es identificar patrones de aprobación o desaprobación hacia las acciones gubernamentales y estudiar cómo estas percepciones varían entre las diferentes temáticas analizadas.
 
 La pregunta central del proyecto es:
 
-> ¿Los cambios asociados a la organización del Mundial de Fútbol 2026 están mejorando la aceptación del gobierno mexicano según las opiniones expresadas en TikTok?
+> Los cambios asociados a la organización del Mundial de Fútbol 2026 ¿están mejorando la aceptación del gobierno mexicano según las opiniones expresadas en TikTok?
 
 ---
 
@@ -91,7 +96,7 @@ Los videos seleccionados corresponden a publicaciones virales relacionadas con:
 
 # Baseline
 
-Como línea base se construyó un conjunto de datos etiquetado manualmente utilizando una escala ordinal de cinco niveles.
+Como Baseline se construyó un conjunto de datos etiquetado manualmente utilizando una escala ordinal de cinco niveles.
 
 Cada comentario se clasifica según el grado de aceptación o rechazo hacia el gobierno actual:
 
@@ -125,10 +130,10 @@ Calcular la distribución de sentimientos para estimar el nivel de aceptación d
 
 Se espera identificar:
 
-* Qué temática genera mayor aceptación ciudadana.
-* Qué temática genera mayor descontento.
-* Si existe una tendencia positiva asociada a las inversiones relacionadas con el Mundial.
-* Cómo varía la percepción pública entre las distintas áreas analizadas.
+* Qué temática genera mayor aceptación ciudadana
+* Qué temática genera mayor descontento
+* Si existe una tendencia positiva asociada a las inversiones relacionadas con el Mundial
+* Cómo varía la percepción pública entre las distintas áreas analizadas
 
 La hipótesis principal es que los proyectos asociados al Mundial de Fútbol 2026 generan una mejora observable en la percepción ciudadana del gobierno, particularmente en temas de infraestructura y turismo.
 
@@ -196,16 +201,40 @@ WORLD_CUP_TIKTOK_ANALYSIS/
 | Evaluación | ⬜ |
 | Documentación final | ⬜ |
 
-
+---
 
 # Consideraciones éticas
 
 Los datos utilizados provienen de contenido públicamente accesible en TikTok y se emplean exclusivamente con fines académicos y de investigación.
 
-Este proyecto no busca identificar individuos ni analizar usuarios específicos, sino estudiar tendencias generales de opinión 
-pública relacionadas con el torneo internacional de futbol a llevarse a cabo durante Junio 2026 en México.
+Este proyecto no busca identificar individuos ni analizar usuarios específicos, sino estudiar tendencias generales de opinión pública relacionadas con el torneo internacional de fútbol a llevarse a cabo durante junio de 2026 en México.
 
 ---
+
+# Instalación
+
+## Requisitos
+
+- Python 3.10 o superior
+- Git
+
+## Clonar el repositorio
+# Ejecucion 
+---
+
+---
+
+# Métricas de evaluación
+
+El desempeño del modelo se evaluará mediante:
+
+- Accuracy
+- Balanced Accuracy
+- F1 Weighted
+- F1-score
+- Matriz de confusión
+
+Estas métricas permitirán comparar el desempeño del baseline contra el modelo ajustado mediante fine-tuning.
 
 # Agradecimientos
 
