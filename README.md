@@ -217,10 +217,12 @@ Este proyecto no busca identificar individuos ni analizar usuarios específicos,
 
 - Python 3.10 o superior
 - Git
+- Clonar el repositorio
 
-## Clonar el repositorio
-# Ejecucion 
+
 ---
+
+# Ejecucion
 
 ---
 
