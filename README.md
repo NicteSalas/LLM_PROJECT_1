@@ -81,7 +81,11 @@ El corpus está compuesto por aproximadamente 2,820 comentarios recolectados de 
 | Turismo         | 905                  |
 | **Total**       | **2,820**            |
 
-De cada eje se etiquetaron manualmente **200 comentarios** (≈600 en total) que sirven como referencia (*gold set*) para entrenar, validar y evaluar los modelos. Cada registro crudo conserva metadatos útiles para el análisis: `diggCount` (likes), `replyCommentTotal`, `createTimeISO` (fecha), `uniqueId` (usuario), entre otros.
+De cada eje se etiquetaron manualmente **200 comentarios** (≈600 en total) que sirven como referencia (*gold set*) para entrenar, validar y evaluar los modelos. Cada registro crudo conserva metadatos relevantes como: `diggCount` (likes), `replyCommentTotal`, `createTimeISO` (fecha), `uniqueId` (usuario), entre otros. Sin embargo, dichos metadatos fueron descartados para la ejecución del presente proyecto. Conservamos las siguientes columnas:
+
+| comentario | etiquetado_humano | categoria |
+
+A partir de la cual se iniciará el procesamiento para posterior análisis.
 
 ---
 
