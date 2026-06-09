@@ -1,12 +1,26 @@
-# --- Análisis local (limpieza, evaluación, gráficas, baseline léxico) ---
+# ============================================================
+# Análisis de Sentimientos en TikTok - Torneo Internacional de Futbol 2026
+# Dependencias del pipeline (notebooks_proyecto/)
+# ============================================================
+
+# --- Núcleo de datos y métricas ---
 pandas>=2.0
 numpy>=1.24
 scipy>=1.10
 scikit-learn>=1.3
 matplotlib>=3.7
 regex>=2023.0
-ftfy>=6.0            # opcional: reparación de mojibake (el código corre sin él)
+ftfy>=6.0
 
-# --- Solo para el notebook 02 (BERT) en Kaggle/Colab; NO se instalan en local ---
-# transformers>=4.40
-# torch
+# --- Modelo, fine-tuning e inferencia ---
+torch>=2.0
+transformers>=4.40
+peft>=0.10
+datasets>=2.18
+accelerate>=0.30
+
+# --- Entorno de ejecución ---
+jupyter
+
+# Nota: en Kaggle o Google Colab, torch, transformers, datasets y accelerate
+# suelen venir preinstalados; bastaría con instalar el resto.
