@@ -35,7 +35,7 @@ El baseline solo funciona en la clase 1; el modelo afinado **levanta todas las c
 
 ## Matrices de confusión (lado a lado)
 
-![Comparación de matrices de confusión](resultados/comparacion_baseline_vs_afinado.png)
+![Comparación de matrices de confusión](comparacion_baseline_vs_afinado.png)
 
 **Baseline (izquierda) — polariza.** Acumula predicciones en los extremos 1 y 5 y casi no usa las clases intermedias. El caso más claro es la fila **neutral (3)**: de 204 neutrales, manda **78 a "muy negativo" y 75 a "muy positivo"**, y solo acierta 25. Comportamiento típico de un modelo de *estrellas* de reseñas que no entiende la neutralidad política.
 
