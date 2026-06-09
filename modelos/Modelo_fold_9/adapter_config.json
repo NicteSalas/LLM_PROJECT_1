@@ -34,9 +34,9 @@
   "revision": null,
   "target_modules": [
     "key",
-    "query",
+    "dense",
     "value",
-    "dense"
+    "query"
   ],
   "target_parameters": null,
   "task_type": "SEQ_CLS",
