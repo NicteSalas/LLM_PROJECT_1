@@ -1,6 +1,6 @@
 {
   "best_global_step": 66,
-  "best_metric": 0.41875,
+  "best_metric": 0.24485785953177258,
   "best_model_checkpoint": "C:\\Users\\nicte\\Documents\\LLM_PROJECT_1\\modelos\\checkpoint-66",
   "epoch": 1.0,
   "eval_steps": 500,
@@ -11,21 +11,21 @@
   "log_history": [
     {
       "epoch": 0.7575757575757576,
-      "grad_norm": 11.185638427734375,
+      "grad_norm": 2.79931902885437,
       "learning_rate": 9.999426946385727e-05,
-      "loss": 1.6418922424316407,
+      "loss": 1.6151220703125,
       "step": 50
     },
     {
       "epoch": 1.0,
-      "eval_accuracy": 0.4827586206896552,
-      "eval_balanced accuracy": 0.41875,
-      "eval_f1_macro": 0.3688401253918495,
-      "eval_f1_weighted": 0.4657831585774511,
-      "eval_loss": 1.4167377948760986,
-      "eval_runtime": 10.8764,
-      "eval_samples_per_second": 5.333,
-      "eval_steps_per_second": 0.368,
+      "eval_accuracy": 0.3275862068965517,
+      "eval_balanced accuracy": 0.24485785953177258,
+      "eval_f1_macro": 0.18562091503267972,
+      "eval_f1_weighted": 0.3159792652693261,
+      "eval_loss": 1.3795175552368164,
+      "eval_runtime": 9.4768,
+      "eval_samples_per_second": 6.12,
+      "eval_steps_per_second": 0.422,
       "step": 66
     }
   ],
@@ -46,7 +46,7 @@
       "attributes": {}
     }
   },
-  "total_flos": 10585588273500.0,
+  "total_flos": 10902309511500.0,
   "train_batch_size": 8,
   "trial_name": null,
   "trial_params": null

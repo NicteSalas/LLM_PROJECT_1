@@ -33,9 +33,9 @@
   "rank_pattern": {},
   "revision": null,
   "target_modules": [
-    "value",
-    "query",
     "key",
+    "query",
+    "value",
     "dense"
   ],
   "target_parameters": null,
