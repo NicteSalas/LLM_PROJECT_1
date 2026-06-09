@@ -35,7 +35,7 @@ El baseline solo funciona en la clase 1; el modelo afinado **levanta todas las c
 
 ## Matrices de confusión (lado a lado)
 
-![Comparación de matrices de confusión](figuras/comparacion_baseline_vs_afinado.png)
+![Comparación de matrices de confusión](resultados/comparacion_baseline_vs_afinado.png)
 
 **Baseline (izquierda) — polariza.** Acumula predicciones en los extremos 1 y 5 y casi no usa las clases intermedias. El caso más claro es la fila **neutral (3)**: de 204 neutrales, manda **78 a "muy negativo" y 75 a "muy positivo"**, y solo acierta 25. Comportamiento típico de un modelo de *estrellas* de reseñas que no entiende la neutralidad política.
 
@@ -47,4 +47,4 @@ El baseline solo funciona en la clase 1; el modelo afinado **levanta todas las c
 
 El fine-tuning con LoRA transforma un clasificador que **no servía** para aprobación política (apenas por encima del azar y polarizado) en uno **usable**: triplica el F1 macro y, sobre todo, deja de confundir extremos para distinguir gradientes de opinión. La mejora se logra entrenando solo los adaptadores LoRA (no los ~167M de parámetros base) y compensando el desbalance con pérdida ponderada.
 
-*Archivos:* `figuras/comparacion_baseline_vs_afinado.png`, `comparacion_modelos.csv`.
+*Archivos:* `resultados/comparacion_baseline_vs_afinado.png`, `comparacion_modelos.csv`.
