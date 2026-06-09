@@ -208,10 +208,10 @@ __marimo__/
 
 # LLM Course Specific
 # Model files and checkpoints (too large for git)
-*.bin
+#*.bin
 *.pt
 *.pth
-*.safetensors
+#*.safetensors
 *.ckpt
 *.h5
 *.pb
@@ -232,7 +232,7 @@ transformers_cache/
 # Model outputs and experiments
 outputs/
 results/
-checkpoints/
+modelos/checkpoint-*
 runs/
 wandb/
 mlruns/
