@@ -317,6 +317,31 @@ El ajuste con LoRA **casi duplica el desempeño del baseline** (accuracy 0.29 �
 
 La **variabilidad entre folds** es notable (la *balanced accuracy* va de ~0.31 a ~0.66), lo que refleja el tamaño reducido del *gold set* y el fuerte desbalance de clases: las clases **4 (parcialmente positiva)** y **5 (positiva)** tienen muy pocos ejemplos, por lo que el modelo acierta mejor en las clases negativas y neutrales. La pérdida ponderada por clase mitiga parcialmente este efecto.
 
+---
+
+## Métricas globales del modelo elegido (Modelo_Fold_3)
+
+| Métrica | Baseline (sin ajustar) | Poder predictivo (afinado) | Mejora |
+|---------|:----------------------:|:--------------------------:|:------:|
+| Accuracy | 0.29 | *0.67* | ×2.3 |
+| Balanced accuracy | 0.30 | *0.70* | ×2.3 |
+| F1 macro | 0.21 | *0.66* | ×3.1 |
+| F1 weighted | 0.27 | *0.67* | ×2.5 |
+
+---
+
+## Desempeño por clase (F1-score)
+
+| Clase | Baseline | Poder predictivo |
+|-------|:--------:|:----------------:|
+| 1 · Negativa | 0.51 | *0.77* |
+| 2 · Parcialmente negativa | 0.17 | *0.59* |
+| 3 · Neutral | 0.18 | *0.64* |
+| 4 · Parcialmente positiva | 0.13 | *0.68* |
+| 5 · Positiva | 0.08 | *0.62* |
+
+---
+
 ## Lectura para la pregunta de investigación
 
 Los comentarios analizados muestran una **predominancia de sentimiento negativo y neutral**, especialmente en el eje de **seguridad**. Esto matiza la hipótesis inicial: más que una mejora clara en la aceptación del gobierno, las inversiones asociadas al Torneo Internacional de Futbol 2026 conviven con un descontento ciudadano visible, sobre todo cuando el gasto del evento se contrasta con demandas sociales (seguridad). La conclusión definitiva requiere ampliar el *gold set* y reforzar las clases positivas.
