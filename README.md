@@ -34,9 +34,9 @@ El proyecto busca estudiar si las inversiones y los cambios asociados al Torneo 
 
 # Descripción del problema
 
-La organización del Torneo Internacional de Futbol 2026 representa uno de los eventos deportivos más importantes para México en las últimas décadas. Su preparación implica inversiones significativas en infraestructura urbana, estrategias de seguridad pública y programas de promoción turística.
+La organización del Torneo Internacional de Futbol 2026 representa uno de los eventos deportivos más importantes para México en las últimas décadas. De acuerdo a Gilberto Fragoso Peralta en _Así se hizo el Mundial_,  preparación implica inversiones significativas en infraestructura urbana, estrategias de seguridad pública y programas de promoción turística desde el mundial realizado en México en 1986. 
 
-Estas acciones pueden influir en la percepción que la ciudadanía tiene sobre la gestión gubernamental. Sin embargo, los métodos tradicionales para medir opinión pública, como encuestas y entrevistas, suelen requerir grandes recursos económicos y presentan limitaciones temporales.
+Del mismo modo, podemos establecer a partir de dicho artículo que estas acciones pueden influir en la percepción que la ciudadanía tiene sobre la gestión gubernamental. Desde quienes lo financian, se busca que sea de forma positiva. [2] Sin embargo, los métodos tradicionales para medir opinión pública, como encuestas y entrevistas, suelen requerir grandes recursos económicos y presentan limitaciones temporales.
 
 Las redes sociales ofrecen una fuente alternativa de información donde los usuarios expresan opiniones de manera espontánea. En particular, TikTok se ha convertido en una de las plataformas con mayor crecimiento en México y concentra una gran cantidad de discusiones relacionadas con temas sociales, políticos y deportivos.
 
