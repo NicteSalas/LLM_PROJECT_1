@@ -112,17 +112,14 @@ Sobre este corpus se realizan: clasificación automática de sentimiento, compar
 | NLP | Hugging Face Transformers |
 | Deep Learning | PyTorch |
 | Fine-tuning eficiente | PEFT / LoRA |
-| Datasets | Hugging Face Datasets |
 | Modelo base | **`nlptown/bert-base-multilingual-uncased-sentiment`** |
 | Recolección de datos | Apify |
 | Procesamiento de datos | pandas, numpy, regex, ftfy |
 | Métricas | scikit-learn |
 | Visualización | matplotlib |
-| Experimentación | Jupyter Notebook |
-| Hardware | **NVIDIA GeForce RTX 4060 Laptop GPU** |
-
-- **Modelo usado:** `nlptown/bert-base-multilingual-uncased-sentiment`
-- **Modelo de GPU:** NVIDIA GeForce RTX 4060 Laptop GPU
+| Experimentación | Jupyter Notebook, VSCodium |
+| Hardware 1 | **13th Gen Intel(R) Core(TM) i7-13650HX**, **16 GB RAM**, **NVIDIA GeForce RTX 4060 Laptop GPU** |
+| Hardware 2 | **AMD Ryzen 7 5800H**, **16 GB RAM**, **NVIDIA GeForce RTX 3050 Ti Laptop GPU** |
 
 ---
 
@@ -187,8 +184,7 @@ LLM_PROJECT_1/
 ├── notebooks_ayudantia/             # tutoriales de ayudantía (RAG, limpieza PDFs)
 ├── presentaciones/                  # presentaciones HTML proporcionadas en clase
 └── bibliografia/                    # artículos de referencia y liga a repositorio Drive.
-│   ├── articulos_referencia.md
-
+    └── articulos_referencia.md
 ```
 
 ---
@@ -198,22 +194,24 @@ LLM_PROJECT_1/
 ## Requisitos previos
 
 - **Python 3.10 o superior**
+- **Jupyter Notebook o VSCodium/VSCode con la extensión Jupyter Notebook**
 - **Git**
-- GPU NVIDIA con CUDA (recomendado para el fine-tuning; el equipo de referencia es una **NVIDIA GeForce RTX 4060 Laptop GPU**). El baseline y la limpieza pueden correr en CPU.
+- GPU NVIDIA (recomendado para el fine-tuning; los equipos de referencia son: **NVIDIA GeForce RTX 4060 Laptop GPU**, **NVIDIA GeForce RTX 3050 Ti Laptop GPU**). El baseline y la limpieza pueden correr en CPU.
+
+Para mayor referencia, ver el archivo `requirements.txt/`
 
 ## Pasos
 
 ```bash
 # 1. Clonar el repositorio
-git clone <URL_DEL_REPOSITORIO>
+git clone <https://github.com/NicteSalas/LLM_PROJECT_1.git>
 cd LLM_PROJECT_1
 
-# 2. (Recomendado) crear y activar un entorno virtual
-python -m venv .venv
-source .venv/bin/activate        # En Windows: .venv\Scripts\activate
-
-# 3. Instalar dependencias
+# 2. Instalar dependencias
 pip install -r requirements.txt
+
+# 3. Ejecutar 
+Ejecutar notebooks dentro del entorno elegido.
 ```
 
 ## Dependencias principales
