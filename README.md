@@ -34,9 +34,9 @@ El proyecto busca estudiar si las inversiones y los cambios asociados al Torneo 
 
 # Descripción del problema
 
-La organización del Torneo Internacional de Futbol 2026 representa uno de los eventos deportivos más importantes para México en las últimas décadas. Su preparación implica inversiones significativas en infraestructura urbana, estrategias de seguridad pública y programas de promoción turística.
+La organización del Torneo Internacional de Futbol 2026 representa uno de los eventos deportivos más importantes para México en las últimas décadas. De acuerdo a Gilberto Fragoso Peralta en _Así se hizo el Mundial_,  preparación implica inversiones significativas en infraestructura urbana, estrategias de seguridad pública y programas de promoción turística desde el mundial realizado en México en 1986. 
 
-Estas acciones pueden influir en la percepción que la ciudadanía tiene sobre la gestión gubernamental. Sin embargo, los métodos tradicionales para medir opinión pública, como encuestas y entrevistas, suelen requerir grandes recursos económicos y presentan limitaciones temporales.
+Del mismo modo, podemos establecer a partir de dicho artículo que estas acciones pueden influir en la percepción que la ciudadanía tiene sobre la gestión gubernamental. Desde quienes lo financian, se busca que sea de forma positiva. [2] Sin embargo, los métodos tradicionales para medir opinión pública, como encuestas y entrevistas, suelen requerir grandes recursos económicos y presentan limitaciones temporales.
 
 Las redes sociales ofrecen una fuente alternativa de información donde los usuarios expresan opiniones de manera espontánea. En particular, TikTok se ha convertido en una de las plataformas con mayor crecimiento en México y concentra una gran cantidad de discusiones relacionadas con temas sociales, políticos y deportivos.
 
@@ -112,17 +112,14 @@ Sobre este corpus se realizan: clasificación automática de sentimiento, compar
 | NLP | Hugging Face Transformers |
 | Deep Learning | PyTorch |
 | Fine-tuning eficiente | PEFT / LoRA |
-| Datasets | Hugging Face Datasets |
 | Modelo base | **`nlptown/bert-base-multilingual-uncased-sentiment`** |
 | Recolección de datos | Apify |
 | Procesamiento de datos | pandas, numpy, regex, ftfy |
 | Métricas | scikit-learn |
 | Visualización | matplotlib |
-| Experimentación | Jupyter Notebook |
-| Hardware | **NVIDIA GeForce RTX 4060 Laptop GPU** |
-
-- **Modelo usado:** `nlptown/bert-base-multilingual-uncased-sentiment`
-- **Modelo de GPU:** NVIDIA GeForce RTX 4060 Laptop GPU
+| Experimentación | Jupyter Notebook, VSCodium |
+| Hardware 1 | **13th Gen Intel(R) Core(TM) i7-13650HX**, **16 GB RAM**, **NVIDIA GeForce RTX 4060 Laptop GPU** |
+| Hardware 2 | **AMD Ryzen 7 5800H**, **16 GB RAM**, **NVIDIA GeForce RTX 3050 Ti Laptop GPU** |
 
 ---
 
@@ -134,29 +131,49 @@ LLM_PROJECT_1/
 ├── README.md
 ├── LICENSE
 ├── requirements.txt
+├── .gitignore
 │
 ├── data/
-│   ├── raw/                          # datos crudos de TikTok (Apify) + README_raw.md
+│   ├── raw/                          # datos crudos de TikTok (Apify)
+│   │   ├── README_raw.md
 │   │   ├── raw_infraestructura.csv
 │   │   ├── raw_seguridad.csv
 │   │   └── raw_turismo.csv
-│   ├── etiquetado_humano/            # gold set (200 por eje) + README_etiquetado_humano.md
+│   ├── etiquetado_humano/            # gold set (200 por eje)
+│   │   ├── README_etiquetado_humano.md
 │   │   ├── infraestructura_etiquetado_humano.csv
 │   │   ├── seguridad_etiquetado_humano.csv
 │   │   └── turismo_etiquetado_humano.csv
 │   ├── limpieza_final/               # comentarios limpios + archivo unificado
+│   │   ├── README_limpieza_final.md
 │   │   ├── infraestructura_limpio.csv
 │   │   ├── seguridad_limpio.csv
 │   │   ├── turismo_limpio.csv
 │   │   └── etiquetado_humano_unificado.csv
-│   ├── pruebas_limpieza/             # iteraciones previas de limpieza (v1, v2, v3)
-│   └── baseline_resultados/          # predicciones del modelo sin ajustar
-│       └── baseline_resultados_procesamiento.csv
+│   ├── pruebas_limpieza/                          # pruebas de preprocesamiento  (v1, v2, v3)
+│   │   ├── processed_v1
+|   |   |   ├── tiktok_infraes_limpio.csv
+|   |   |   ├── tiktok_seguridad_limpio.csv
+│   │   |   └── tiktok_turismo_limpio.csv
+│   │   ├── processed_v2
+|   |   |   ├── infraestructura_limpio.csv
+│   │   |   └── turismo_limpio.csv
+│   │   └── processed_v3
+|   |   |   ├── infraestructura_limpio.csv
+|   |   |   ├── seguridad_limpio.csv
+│   │   |   └── turismo_limpio.csv
+│   └── resultados/          # archivos de resultados del repositorio
+|   |   ├── imagenes
+|   |   |   ├── comparacion_baseline_vs_afinado.png
+|   |   ├── escalamiento_resultados.csv
+|   |   ├── comparacion_baseline_vs_poder_predictivo.md
+│   |   └── baseline_resultados_procesamiento.csv
 │
 ├── notebooks_proyecto/              # pipeline del proyecto
 │   ├── LimpiezaDatos.ipynb           # limpieza y normalización del texto
 │   ├── Baseline.ipynb                # evaluación del modelo sin ajustar
 │   ├── FineTuning.ipynb              # ajuste con LoRA + validación cruzada
+│   ├── proyecto1.ipynb               # notebook misteriosa
 │   └── FineTuning_Foto_No_Correr.ipynb
 │
 ├── modelos/                         # adaptadores LoRA por fold + checkpoints
@@ -165,8 +182,9 @@ LLM_PROJECT_1/
 │
 ├── notebooks_clase/                 # material de clase (Fases 1-4)
 ├── notebooks_ayudantia/             # tutoriales de ayudantía (RAG, limpieza PDFs)
-├── presentaciones/                  # presentaciones HTML
-└── documentos/                      # artículos de referencia
+├── presentaciones/                  # presentaciones HTML proporcionadas en clase
+└── bibliografia/                    # artículos de referencia y liga a repositorio Drive.
+    └── articulos_referencia.md
 ```
 
 ---
@@ -176,22 +194,24 @@ LLM_PROJECT_1/
 ## Requisitos previos
 
 - **Python 3.10 o superior**
+- **Jupyter Notebook o VSCodium/VSCode con la extensión Jupyter Notebook**
 - **Git**
-- GPU NVIDIA con CUDA (recomendado para el fine-tuning; el equipo de referencia es una **NVIDIA GeForce RTX 4060 Laptop GPU**). El baseline y la limpieza pueden correr en CPU.
+- GPU NVIDIA (recomendado para el fine-tuning; los equipos de referencia son: **NVIDIA GeForce RTX 4060 Laptop GPU**, **NVIDIA GeForce RTX 3050 Ti Laptop GPU**). El baseline y la limpieza pueden correr en CPU.
+
+Para mayor referencia, ver el archivo `requirements.txt/`
 
 ## Pasos
 
 ```bash
 # 1. Clonar el repositorio
-git clone <URL_DEL_REPOSITORIO>
+git clone <https://github.com/NicteSalas/LLM_PROJECT_1.git>
 cd LLM_PROJECT_1
 
-# 2. (Recomendado) crear y activar un entorno virtual
-python -m venv .venv
-source .venv/bin/activate        # En Windows: .venv\Scripts\activate
-
-# 3. Instalar dependencias
+# 2. Instalar dependencias
 pip install -r requirements.txt
+
+# 3. Ejecutar 
+Ejecutar notebooks dentro del entorno elegido.
 ```
 
 ## Dependencias principales
@@ -220,7 +240,7 @@ accelerate>=0.30
 jupyter
 ```
 
-> Nota: en plataformas como **Kaggle** o **Google Colab**, `torch`, `transformers`,
+> Nota: en plataformas como **Google Colab**, `torch`, `transformers`,
 > `datasets` y `accelerate` suelen venir preinstalados, por lo que basta con instalar
 > el resto.
 
@@ -230,25 +250,29 @@ jupyter
 
 El pipeline se ejecuta en orden a través de los notebooks de `notebooks_proyecto/`:
 
-| Orden | Notebook | Qué hace |
+| Orden | Notebook | Función |
 |-------|----------|----------|
 | 1 | `LimpiezaDatos.ipynb` | Lee `data/etiquetado_humano/`, normaliza el texto (encoding, emojis→texto, emoticonos), unifica las tres categorías y exporta a `data/limpieza_final/`. |
-| 2 | `Baseline.ipynb` | Evalúa el modelo **sin ajustar** contra el etiquetado humano y guarda predicciones en `data/baseline_resultados/`. |
+| 2 | `Baseline.ipynb` | Evalúa el modelo **sin ajustar** contra el etiquetado humano y guarda predicciones en `data/resultados/baseline_resultados_procesamiento/`. |
 | 3 | `FineTuning.ipynb` | Ajusta el modelo con **LoRA** usando validación cruzada *K-Fold* y pérdida ponderada por clase; guarda los adaptadores y métricas por *fold* en `modelos/`. |
+| 4 | `PoderPredictivo.ipynb` |  Evalúa el modelo **calibrado** contra el etiquetado humano y guarda predicciones en `data/resultados/resultados_poder_predictivo/`.  |
+| 5 | `Escalmiento.ipynb` | Aplica el modelo afinado con LoRA (mejor *fold*, `modelos/Modelo_fold_3`) a **todos** los comentarios del corpus para *escalar* la clasificación más allá de los 581 etiquetados a mano. Guarda resultados en `data/resultados/escalamiento_resultados/`. |
 
 Para reproducir el flujo completo:
 
 ```bash
-jupyter notebook        # o: jupyter lab
+jupyter notebook        # o: VSCodium/VSCode
 ```
 
 1. Abre y ejecuta `LimpiezaDatos.ipynb` de principio a fin.
 2. Ejecuta `Baseline.ipynb` para obtener la línea base.
 3. Ejecuta `FineTuning.ipynb` (requiere GPU) para el ajuste fino y la evaluación.
+4. Ejecuta `PoderPredictivo.ipynb` (requiere GPU) para cálculo de métricas y comparación.
+5. Ejecuta `Escalamiento.ipynb` para obtener los resultados finales de clasificación de categorías sobre el dataset completo.
+6. Los resultados podrán encontrarse en `data/resultados`.
 
 > Las rutas de los notebooks son relativas a la raíz del repositorio
-> (`Path(os.getcwd()).parent`), por lo que deben ejecutarse desde
-> `notebooks_proyecto/`.
+> (`Path(os.getcwd()).parent`), por lo que no es necesario realizar cambios manuales sobre la ruta.
 
 ---
 
@@ -292,6 +316,31 @@ El modelo preentrenado, pensado para reseñas de productos, **traslada mal su no
 El ajuste con LoRA **casi duplica el desempeño del baseline** (accuracy 0.29 → 0.52; F1 macro 0.21 → 0.41), confirmando que adaptar el modelo al dominio y a la escala de aprobación política aporta una mejora sustancial con un costo de entrenamiento bajo (solo se ajustan los adaptadores LoRA, no los ~167M de parámetros del modelo base).
 
 La **variabilidad entre folds** es notable (la *balanced accuracy* va de ~0.31 a ~0.66), lo que refleja el tamaño reducido del *gold set* y el fuerte desbalance de clases: las clases **4 (parcialmente positiva)** y **5 (positiva)** tienen muy pocos ejemplos, por lo que el modelo acierta mejor en las clases negativas y neutrales. La pérdida ponderada por clase mitiga parcialmente este efecto.
+
+---
+
+## Métricas globales del modelo elegido (Modelo_Fold_3)
+
+| Métrica | Baseline (sin ajustar) | Poder predictivo (afinado) | Mejora |
+|---------|:----------------------:|:--------------------------:|:------:|
+| Accuracy | 0.29 | *0.67* | ×2.3 |
+| Balanced accuracy | 0.30 | *0.70* | ×2.3 |
+| F1 macro | 0.21 | *0.66* | ×3.1 |
+| F1 weighted | 0.27 | *0.67* | ×2.5 |
+
+---
+
+## Desempeño por clase (F1-score)
+
+| Clase | Baseline | Poder predictivo |
+|-------|:--------:|:----------------:|
+| 1 · Negativa | 0.51 | *0.77* |
+| 2 · Parcialmente negativa | 0.17 | *0.59* |
+| 3 · Neutral | 0.18 | *0.64* |
+| 4 · Parcialmente positiva | 0.13 | *0.68* |
+| 5 · Positiva | 0.08 | *0.62* |
+
+---
 
 ## Lectura para la pregunta de investigación
 
