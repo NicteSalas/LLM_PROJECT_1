@@ -134,29 +134,49 @@ LLM_PROJECT_1/
 ├── README.md
 ├── LICENSE
 ├── requirements.txt
+├── .gitignore
 │
 ├── data/
-│   ├── raw/                          # datos crudos de TikTok (Apify) + README_raw.md
+│   ├── raw/                          # datos crudos de TikTok (Apify)
+│   │   ├── README_raw.md
 │   │   ├── raw_infraestructura.csv
 │   │   ├── raw_seguridad.csv
 │   │   └── raw_turismo.csv
-│   ├── etiquetado_humano/            # gold set (200 por eje) + README_etiquetado_humano.md
+│   ├── etiquetado_humano/            # gold set (200 por eje)
+│   │   ├── README_etiquetado_humano.md
 │   │   ├── infraestructura_etiquetado_humano.csv
 │   │   ├── seguridad_etiquetado_humano.csv
 │   │   └── turismo_etiquetado_humano.csv
 │   ├── limpieza_final/               # comentarios limpios + archivo unificado
+│   │   ├── README_limpieza_final.md
 │   │   ├── infraestructura_limpio.csv
 │   │   ├── seguridad_limpio.csv
 │   │   ├── turismo_limpio.csv
 │   │   └── etiquetado_humano_unificado.csv
-│   ├── pruebas_limpieza/             # iteraciones previas de limpieza (v1, v2, v3)
-│   └── baseline_resultados/          # predicciones del modelo sin ajustar
-│       └── baseline_resultados_procesamiento.csv
+│   ├── pruebas_limpieza/                          # pruebas de preprocesamiento  (v1, v2, v3)
+│   │   ├── processed_v1
+|   |   |   ├── tiktok_infraes_limpio.csv
+|   |   |   ├── tiktok_seguridad_limpio.csv
+│   │   |   └── tiktok_turismo_limpio.csv
+│   │   ├── processed_v2
+|   |   |   ├── infraestructura_limpio.csv
+│   │   |   └── turismo_limpio.csv
+│   │   └── processed_v3
+|   |   |   ├── infraestructura_limpio.csv
+|   |   |   ├── seguridad_limpio.csv
+│   │   |   └── turismo_limpio.csv
+│   └── resultados/          # archivos de resultados del repositorio
+|   |   ├── imagenes
+|   |   |   ├── comparacion_baseline_vs_afinado.png
+|   |   ├── escalamiento_resultados.csv
+|   |   ├── comparacion_baseline_vs_poder_predictivo.md
+│   |   └── baseline_resultados_procesamiento.csv
 │
 ├── notebooks_proyecto/              # pipeline del proyecto
 │   ├── LimpiezaDatos.ipynb           # limpieza y normalización del texto
 │   ├── Baseline.ipynb                # evaluación del modelo sin ajustar
 │   ├── FineTuning.ipynb              # ajuste con LoRA + validación cruzada
+│   ├── proyecto1.ipynb               # notebook misteriosa
 │   └── FineTuning_Foto_No_Correr.ipynb
 │
 ├── modelos/                         # adaptadores LoRA por fold + checkpoints
@@ -165,8 +185,10 @@ LLM_PROJECT_1/
 │
 ├── notebooks_clase/                 # material de clase (Fases 1-4)
 ├── notebooks_ayudantia/             # tutoriales de ayudantía (RAG, limpieza PDFs)
-├── presentaciones/                  # presentaciones HTML
-└── documentos/                      # artículos de referencia
+├── presentaciones/                  # presentaciones HTML proporcionadas en clase
+└── bibliografia/                    # artículos de referencia y liga a repositorio Drive.
+│   ├── articulos_referencia.md
+
 ```
 
 ---
