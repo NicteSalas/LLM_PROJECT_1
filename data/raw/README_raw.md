@@ -97,11 +97,5 @@ Etiquetado humano
     ↓
 Limpieza y normalización *
     ↓
-Extracción de características
-    ↓
-Entrenamiento de modelos
-    ↓
-Evaluación
-    ↓
-Análisis de resultados
+...
 ```
