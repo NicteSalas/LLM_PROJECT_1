@@ -21,6 +21,7 @@ accelerate>=0.30
 
 # --- Entorno de ejecución ---
 jupyter
+#o VSCodium/VScode
 
-# Nota: en Kaggle o Google Colab, torch, transformers, datasets y accelerate
+# Nota: en Google Colab, torch, transformers, datasets y accelerate
 # suelen venir preinstalados; bastaría con instalar el resto.
