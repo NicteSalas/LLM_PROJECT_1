@@ -240,7 +240,7 @@ accelerate>=0.30
 jupyter
 ```
 
-> Nota: en plataformas como **Kaggle** o **Google Colab**, `torch`, `transformers`,
+> Nota: en plataformas como **Google Colab**, `torch`, `transformers`,
 > `datasets` y `accelerate` suelen venir preinstalados, por lo que basta con instalar
 > el resto.
 
@@ -250,25 +250,29 @@ jupyter
 
 El pipeline se ejecuta en orden a través de los notebooks de `notebooks_proyecto/`:
 
-| Orden | Notebook | Qué hace |
+| Orden | Notebook | Función |
 |-------|----------|----------|
 | 1 | `LimpiezaDatos.ipynb` | Lee `data/etiquetado_humano/`, normaliza el texto (encoding, emojis→texto, emoticonos), unifica las tres categorías y exporta a `data/limpieza_final/`. |
-| 2 | `Baseline.ipynb` | Evalúa el modelo **sin ajustar** contra el etiquetado humano y guarda predicciones en `data/baseline_resultados/`. |
+| 2 | `Baseline.ipynb` | Evalúa el modelo **sin ajustar** contra el etiquetado humano y guarda predicciones en `data/resultados/baseline_resultados_procesamiento/`. |
 | 3 | `FineTuning.ipynb` | Ajusta el modelo con **LoRA** usando validación cruzada *K-Fold* y pérdida ponderada por clase; guarda los adaptadores y métricas por *fold* en `modelos/`. |
+| 4 | `PoderPredictivo.ipynb` |  Evalúa el modelo **calibrado** contra el etiquetado humano y guarda predicciones en `data/resultados/resultados_poder_predictivo/`.  |
+| 5 | `Escalmiento.ipynb` | Aplica el modelo afinado con LoRA (mejor *fold*, `modelos/Modelo_fold_3`) a **todos** los comentarios del corpus para *escalar* la clasificación más allá de los 581 etiquetados a mano. Guarda resultados en `data/resultados/escalamiento_resultados/`. |
 
 Para reproducir el flujo completo:
 
 ```bash
-jupyter notebook        # o: jupyter lab
+jupyter notebook        # o: VSCodium/VSCode
 ```
 
 1. Abre y ejecuta `LimpiezaDatos.ipynb` de principio a fin.
 2. Ejecuta `Baseline.ipynb` para obtener la línea base.
 3. Ejecuta `FineTuning.ipynb` (requiere GPU) para el ajuste fino y la evaluación.
+4. Ejecuta `PoderPredictivo.ipynb` (requiere GPU) para cálculo de métricas y comparación.
+5. Ejecuta `Escalamiento.ipynb` para obtener los resultados finales de clasificación de categorías sobre el dataset completo.
+6. Los resultados podrán encontrarse en `data/resultados`.
 
 > Las rutas de los notebooks son relativas a la raíz del repositorio
-> (`Path(os.getcwd()).parent`), por lo que deben ejecutarse desde
-> `notebooks_proyecto/`.
+> (`Path(os.getcwd()).parent`), por lo que no es necesario realizar cambios manuales sobre la ruta.
 
 ---
 
