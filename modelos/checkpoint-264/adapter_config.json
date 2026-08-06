@@ -33,10 +33,10 @@
   "rank_pattern": {},
   "revision": null,
   "target_modules": [
+    "dense",
     "key",
-    "query",
     "value",
-    "dense"
+    "query"
   ],
   "target_parameters": null,
   "task_type": "SEQ_CLS",
